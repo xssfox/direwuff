@@ -270,18 +270,6 @@ int main (int argc, char *argv[])
 
 #endif
 
-/*
- * Pre-scan the command line options for the text color option.
- * We need to set this before any text output.
- * Default will be no colors if stdout is not a terminal (i.e. piped into
- * something else such as "tee") but command line can override this.
- */
-
-#if __WIN32__
-	t_opt = _isatty(_fileno(stdout)) > 0;
-#else
-	t_opt = isatty(fileno(stdout));
-#endif
 				/* 1 = normal, 0 = no text colors. */
 				/* 2, 3, ... alternate escape sequences for different terminals. */
 
