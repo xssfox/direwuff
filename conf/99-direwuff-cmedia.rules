@@ -9,7 +9,7 @@
 # to accidentally trash your system.  We need to relax the restrictions so ordinary users can use these devices.
 #
 # If all went well with installation, the  /etc/udev/rules.d directory should contain a file called
-# 99-direwolf-cmedia.rules  containing:
+# 99-direwuff-cmedia.rules  containing:
 #
 
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0d8c", GROUP="audio", MODE="0660"

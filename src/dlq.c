@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2014, 2015, 2016, 2018  John Langner, WB2OSZ
 //
@@ -37,7 +37,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -381,7 +381,7 @@ static void append_to_queue (struct dlq_item_s *pnew)
  * a warning at start up time:
  *
  *	Virtual KISS TNC is available on /dev/pts/2
- *	WARNING - Dire Wolf will hang eventually if nothing is reading from it.
+ *	WARNING - Dire Wuff will hang eventually if nothing is reading from it.
  *	Created symlink /tmp/kisstnc -> /dev/pts/2
  *
  * In earlier versions, where the audio input and demodulation was in the main 
@@ -420,7 +420,7 @@ static void append_to_queue (struct dlq_item_s *pnew)
 	  text_color_set(DW_COLOR_ERROR);
 	  dw_printf ("Received frame queue is out of control. Length=%d.\n", queue_length);
 	  dw_printf ("Reader thread is probably frozen.\n");
-	  dw_printf ("This can be caused by using a pseudo terminal (direwolf -p) where another\n");
+	  dw_printf ("This can be caused by using a pseudo terminal (direwuff -p) where another\n");
 	  dw_printf ("application is not reading the frames from the other side.\n");
 	}
 

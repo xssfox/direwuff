@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2020  John Langner, WB2OSZ
 //
@@ -138,7 +138,7 @@
  * Cygwin:		Can use either one.
  */
 
-#include "direwolf.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
+#include "direwuff.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
 
 #if __WIN32__
 #include <winsock2.h>
@@ -176,7 +176,7 @@
  * You can increase the limit by changing the line below.
  * A larger number consumes more resources so don't go crazy by making it larger than needed.
  */
-// FIXME:  Put in direwolf.h rather than in .c file. Change name to reflect AGW vs KISS. Update user guide 5.7.
+// FIXME:  Put in direwuff.h rather than in .c file. Change name to reflect AGW vs KISS. Update user guide 5.7.
 
 #define MAX_NET_CLIENTS 3
 
@@ -896,7 +896,7 @@ void server_send_monitored (int chan, packet_t pp, int own_xmit)
 	    // In version 1.4, we add that to match observed behaviour.
 
 	    // This inconsistency was reported:
-	    // Direwolf:
+	    // Direwuff:
 	    // [AGWE-IN] 1:Fm ZL4FOX-8 To Q7P2U2 [08:25:07]`I1*l V>/"9<}[:Barts Tracker 3.83V X
 	    // AGWPE:
 	    // [AGWE-IN] 1:Fm ZL4FOX-8 To Q7P2U2 Via WIDE3-3 [08:32:14]`I0*l V>/"98}[:Barts Tracker 3.83V X
@@ -1020,7 +1020,7 @@ static void mon_addrs (int chan, packet_t pp, char *result, int result_size)
 static char mon_desc (packet_t pp, char *result, int result_size)
 {
 	cmdres_t cr;		// command/response.
-	char ignore[80];	// direwolf description.  not used here.
+	char ignore[80];	// direwuff description.  not used here.
 	int pf;			// poll/final bit.
 	int ns;			// N(S) Send sequence number.
 	int nr;			// N(R) Received sequence number.

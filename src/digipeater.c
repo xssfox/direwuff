@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2013, 2014, 2015  John Langner, WB2OSZ
 //
@@ -55,7 +55,7 @@
 
 #define DIGIPEATER_C
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -444,7 +444,7 @@ static packet_t digipeat_match (int from_chan, packet_t pp, char *mycall_rec, ch
  *
  * Bob says: "GENERIC XXXXn-N DIGIPEATING should not do preemptive digipeating."
  *
- * But consider this case:  https://github.com/wb2osz/direwolf/issues/488
+ * But consider this case:  https://github.com/wb2osz/direwuff/issues/488
  */
 
 	if (preempt != PREEMPT_OFF) {

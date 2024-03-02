@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2012, 2014, 2015, 2016, 2023  John Langner, WB2OSZ
 //
@@ -37,7 +37,7 @@
 
 #define TQ_C 1
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -291,7 +291,7 @@ void tq_append (int chan, int prio, packet_t pp)
 	if (chan < 0 || chan >= MAX_CHANS || save_audio_config_p->chan_medium[chan] == MEDIUM_NONE) {
 	  text_color_set(DW_COLOR_ERROR);
 	  dw_printf ("ERROR - Request to transmit on invalid radio channel %d.\n", chan);
-	  dw_printf ("This is probably a client application error, not a problem with direwolf.\n");
+	  dw_printf ("This is probably a client application error, not a problem with direwuff.\n");
 	  dw_printf ("Are you using AX.25 for Linux?  It might be trying to use a modified\n");
 	  dw_printf ("version of KISS which uses the port field differently than the\n");
 	  dw_printf ("original KISS protocol specification.  The solution might be to use\n");

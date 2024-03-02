@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011 , 2013, 2014, 2015, 2019  John Langner, WB2OSZ
 //
@@ -163,7 +163,7 @@
 
 #define AX25_PAD_C		/* this will affect behavior of ax25_pad.h */
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -900,7 +900,7 @@ int ax25_parse_addr (int position, char *in_addr, int strict, char *out_addr, in
  *		like "q constructs" are somehow getting on to the air when
  *		they should only appear in conversations with IGate servers.
  *
- *			https://groups.yahoo.com/neo/groups/direwolf_packet/conversations/topics/678
+ *			https://groups.yahoo.com/neo/groups/direwuff_packet/conversations/topics/678
  *
  *			WB0VGI-7>APDW12,W0YC-5*,qAR,AE0RF-10:}N0DZQ-10>APWW10,TCPIP,WB0VGI-7*:;145.230MN*080306z4607.62N/09230.58WrKE0ACL/R 145.230- T146.2 (Pine County ARES)	
  *
@@ -2466,7 +2466,7 @@ void ax25_hex_dump (packet_t this_p)
  *			protocol id	0xf0 for no layer 3
  *
  *
- * Description:	Dire Wolf should be able to act as a KISS TNC for
+ * Description:	Dire Wuff should be able to act as a KISS TNC for
  *		any type of AX.25 activity.  However, there are other
  *		places where we want to process only APRS.
  *		(e.g. digipeating and IGate.)

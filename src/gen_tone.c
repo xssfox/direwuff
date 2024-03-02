@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2014, 2015, 2016, 2019, 2023  John Langner, WB2OSZ
 //
@@ -28,7 +28,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 
 #include <stdio.h>
@@ -131,7 +131,7 @@ static int prev_dat[MAX_CHANS];		// Previous data bit.  Used for G3RUH style.
  *				  100% uses the full 16 bit sample range of +-32k.
  *
  *		gen_packets	- True if being called from "gen_packets" utility
- *				  rather than the "direwolf" application.
+ *				  rather than the "direwuff" application.
  *
  * Returns:     0 for success.
  *              -1 for failure.

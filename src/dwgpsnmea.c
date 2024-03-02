@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2013, 2014, 2015  John Langner, WB2OSZ
 //
@@ -44,7 +44,7 @@
  *---------------------------------------------------------------*/
 
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 
 #include <stdio.h>
@@ -779,7 +779,8 @@ int main (int argc, char *argv[])
 	while (1) {
 	  dwfix_t fix;
 
-	  fix = dwgps_read (&info);
+	  fix = dwgps_read (&info)
+;
 	  text_color_set (DW_COLOR_INFO);
 	  switch (fix) {
 	    case DWFIX_2D:

@@ -8,16 +8,16 @@
 
 
 # Run this from crontab periodically to start up
-# Dire Wolf automatically.
+# Dire Wuff automatically.
 
 # See User Guide for more discussion.
 # For release 1.4 it is section 5.7 "Automatic Start Up After Reboot"
 # but it could change in the future as more information is added.
 
 
-# Versioning (this file, not direwolf version)
+# Versioning (this file, not direwuff version)
 #-----------
-# v1.3 - KI6ZHD - added variable support for direwolf binary location
+# v1.3 - KI6ZHD - added variable support for direwuff binary location
 # v1.2 - KI6ZHD - support different versions of VNC
 # v1.1 - KI6ZHD - expanded version to support running on text-only displays with 
 #        auto support; log placement change
@@ -25,9 +25,9 @@
 
 
 
-#How are you running Direwolf : within a GUI (Xwindows / VNC) or CLI mode
+#How are you running Direwuff : within a GUI (Xwindows / VNC) or CLI mode
 #
-#  AUTO mode is design to try starting direwolf with GUI support and then
+#  AUTO mode is design to try starting direwuff with GUI support and then
 #    if no GUI environment is available, it reverts to CLI support with screen
 #
 #  GUI mode is suited for users with the machine running LXDE/Gnome/KDE or VNC
@@ -38,25 +38,25 @@
 
 RUNMODE=AUTO
 
-# Location of the direwolf binary.  Depends on $PATH as shown.
+# Location of the direwuff binary.  Depends on $PATH as shown.
 # change this if you want to use some other specific location.
-# e.g.  DIREWOLF="/usr/local/bin/direwolf"
+# e.g.  DIREWUFF="/usr/local/bin/direwuff"
 
-DIREWOLF="direwolf"
+DIREWUFF="direwuff"
 
 
-#Direwolf start up command :: Uncomment only one of the examples.
+#Direwuff start up command :: Uncomment only one of the examples.
 #
 # 1. For normal operation as TNC, digipeater, IGate, etc.
 #    Print audio statistics each 100 seconds for troubleshooting.
-#    Change this command to however you wish to start Direwolf
+#    Change this command to however you wish to start Direwuff
 
-DWCMD="$DIREWOLF -a 100"
+DWCMD="$DIREWUFF -a 100"
 
 # 2. FX.25 Forward Error Correction (FEC) will allow your signal to
 #    go farther under poor radio conditions.  Add "-X 1" to the command line.
 
-#DWCMD="$DIREWOLF -a 100 -X 1"
+#DWCMD="$DIREWUFF -a 100 -X 1"
 
 #---------------------------------------------------------------
 #
@@ -64,7 +64,7 @@ DWCMD="$DIREWOLF -a 100"
 #    Piping one application into another makes it a little more complicated.
 #    We need to use bash for the | to be recognized.
 
-#DWCMD="bash -c 'rtl_fm -f 144.39M - | direwolf -c sdr.conf -r 24000 -D 1 -'"
+#DWCMD="bash -c 'rtl_fm -f 144.39M - | direwuff -c sdr.conf -r 24000 -D 1 -'"
 
 
 #Where will logs go - needs to be writable by non-root users
@@ -85,17 +85,17 @@ function CLI {
       exit 1
    fi
 
-   echo "Direwolf in CLI mode start up"
-   echo "Direwolf in CLI mode start up" >> $LOGFILE
+   echo "Direwuff in CLI mode start up"
+   echo "Direwuff in CLI mode start up" >> $LOGFILE
 
    # Screen commands
    #  -d m :: starts the command in detached mode
    #  -S   :: name the session
-   $SCREEN -d -m -S direwolf $DWCMD >> $LOGFILE
+   $SCREEN -d -m -S direwuff $DWCMD >> $LOGFILE
    SUCCESS=1
 
-   $SCREEN -list direwolf
-   $SCREEN -list direwolf >> $LOGFILE
+   $SCREEN -list direwuff
+   $SCREEN -list direwuff >> $LOGFILE
 
    echo "-----------------------"
    echo "-----------------------" >> $LOGFILE
@@ -124,8 +124,8 @@ function GUI {
       export DISPLAY="$d"
    fi
 
-   echo "Direwolf in GUI mode start up"
-   echo "Direwolf in GUI mode start up" >> $LOGFILE
+   echo "Direwuff in GUI mode start up"
+   echo "Direwuff in GUI mode start up" >> $LOGFILE
    echo "DISPLAY=$DISPLAY" 
    echo "DISPLAY=$DISPLAY" >> $LOGFILE
 
@@ -134,7 +134,7 @@ function GUI {
    #
 
    if [ -x /usr/bin/lxterminal ]; then
-      /usr/bin/lxterminal -t "Dire Wolf" -e "$DWCMD" &
+      /usr/bin/lxterminal -t "Dire Wuff" -e "$DWCMD" &
       SUCCESS=1
      elif [ -x /usr/bin/xterm ]; then
       /usr/bin/xterm -bg white -fg black -e "$DWCMD" &
@@ -169,14 +169,14 @@ sleep 30
 
 
 #
-# Nothing to do if Direwolf is already running.
+# Nothing to do if Direwuff is already running.
 #
 
-a=`ps ax | grep direwolf | grep -vi -e bash -e screen -e grep | awk '{print $1}'`
+a=`ps ax | grep direwuff | grep -vi -e bash -e screen -e grep | awk '{print $1}'`
 if [ -n "$a" ] 
 then
   #date >> /tmp/dw-start.log
-  #echo "Direwolf already running." >> $LOGFILE
+  #echo "Direwuff already running." >> $LOGFILE
   exit
 fi
 

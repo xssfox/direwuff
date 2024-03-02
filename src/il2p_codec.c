@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2021  John Langner, WB2OSZ
 //
@@ -17,7 +17,7 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -33,7 +33,7 @@
  *
  * File:	il2p_codec.c
  *
- * Purpose:	Convert IL2P encoded format from and to direwolf internal packet format.
+ * Purpose:	Convert IL2P encoded format from and to direwuff internal packet format.
  *
  *--------------------------------------------------------------*/
 

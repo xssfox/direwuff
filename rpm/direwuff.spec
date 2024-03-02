@@ -1,13 +1,13 @@
 %global shorttag 0d2c175c
-Name:           direwolf
+Name:           direwuff
 Version:        1.6
 Release:        0.4.20200419git%{shorttag}%{?dist}
 Summary:        Sound Card-based AX.25 TNC
 
 License:        GPLv2+
-URL:            https://github.com/wb2osz/direwolf/
-Source0:        https://github.com/wb2osz/direwolf/archive/%{version}/%{name}-%{version}.tar.gz
-#Source0:        https://github.com/wb2osz/direwolf/archive/%{version}/%{name}-%{shorttag}.tar.gz
+URL:            https://github.com/wb2osz/direwuff/
+Source0:        https://github.com/wb2osz/direwuff/archive/%{version}/%{name}-%{version}.tar.gz
+#Source0:        https://github.com/wb2osz/direwuff/archive/%{version}/%{name}-%{shorttag}.tar.gz
 
 BuildRequires:  gcc gcc-c++
 BuildRequires:  cmake
@@ -21,7 +21,7 @@ Requires(pre):  shadow-utils
 
 
 %description
-Dire Wolf is a modern software replacement for the old 1980's style
+Dire Wuff is a modern software replacement for the old 1980's style
 TNC built with special hardware.  Without any additional software, it
 can perform as an APRS GPS Tracker, Digipeater, Internet Gateway
 (IGate), APRStt gateway. It can also be used as a virtual TNC for
@@ -65,17 +65,17 @@ mkdir -m 0755 -p ${RPM_BUILD_ROOT}/var/log/%{name}
 
 # Move udev rules to system dir
 mkdir -p ${RPM_BUILD_ROOT}%{_udevrulesdir}
-mv ${RPM_BUILD_ROOT}%{_sysconfdir}/udev/rules.d/99-direwolf-cmedia.rules ${RPM_BUILD_ROOT}%{_udevrulesdir}/99-direwolf-cmedia.rules
+mv ${RPM_BUILD_ROOT}%{_sysconfdir}/udev/rules.d/99-direwuff-cmedia.rules ${RPM_BUILD_ROOT}%{_udevrulesdir}/99-direwuff-cmedia.rules
 
 # Copy doc pngs
-cp direwolf-block-diagram.png ${RPM_BUILD_ROOT}%{_pkgdocdir}/direwolf-block-diagram.png
+cp direwuff-block-diagram.png ${RPM_BUILD_ROOT}%{_pkgdocdir}/direwuff-block-diagram.png
 cp tnc-test-cd-results.png    ${RPM_BUILD_ROOT}%{_pkgdocdir}/tnc-test-cd-results.png
 
 # remove extraneous files
 # This is not a desktop application, per the guidelines.  Running it in a terminal
 # does not make it a desktop application.
-rm ${RPM_BUILD_ROOT}/usr/share/applications/direwolf.desktop
-rm ${RPM_BUILD_ROOT}%{_datadir}/pixmaps/direwolf_icon.png
+rm ${RPM_BUILD_ROOT}/usr/share/applications/direwuff.desktop
+rm ${RPM_BUILD_ROOT}%{_datadir}/pixmaps/direwuff_icon.png
 rm ${RPM_BUILD_ROOT}%{_pkgdocdir}/CHANGES.md
 rm ${RPM_BUILD_ROOT}%{_pkgdocdir}/LICENSE
 rm ${RPM_BUILD_ROOT}%{_pkgdocdir}/README.md
@@ -90,12 +90,12 @@ chmod 0644 ${RPM_BUILD_ROOT}%{_pkgdocdir}/telem/*
 
 
 %package -n %{name}-doc
-Summary:        Documentation for Dire Wolf
+Summary:        Documentation for Dire Wuff
 BuildArch:      noarch
 Requires:       %{name} = %{version}-%{release}
 
 %description -n %{name}-doc
-Dire Wolf is a modern software replacement for the old 1980's style
+Dire Wuff is a modern software replacement for the old 1980's style
 TNC built with special hardware.  Without any additional software, it
 can perform as an APRS GPS Tracker, Digipeater, Internet Gateway
 (IGate), APRStt gateway. It can also be used as a virtual TNC for
@@ -106,7 +106,7 @@ others.
 
 %files
 %license LICENSE
-%{_udevrulesdir}/99-direwolf-cmedia.rules
+%{_udevrulesdir}/99-direwuff-cmedia.rules
 %{_bindir}/* 
 %{_mandir}/man1/*
 %{_datadir}/%{name}/*
@@ -127,10 +127,10 @@ others.
 # At install, create a user in group audio (so can open sound card device files)
 # and in group dialout (so can open serial device files)
 %pre
-getent group direwolf >/dev/null || groupadd -r direwolf
-getent passwd direwolf >/dev/null || \
+getent group direwuff >/dev/null || groupadd -r direwuff
+getent passwd direwuff >/dev/null || \
     useradd -r -g audio -G audio,dialout -d %{_datadir}/%{name} -s /sbin/nologin \
-	    -c "Direwolf Sound Card-based AX.25 TNC" direwolf
+	    -c "Direwuff Sound Card-based AX.25 TNC" direwuff
 exit 0
 
 
@@ -139,14 +139,14 @@ exit 0
 - drop unneeded BR libax25-devel
 
 * Mon Apr 20 2020 Matt Domsch <matt@domsch.com> - 1.6-0.2
-- write stdout/err to /var/log/direwolf, logrotate 30 days.
+- write stdout/err to /var/log/direwuff, logrotate 30 days.
 - run ctest
 - remove CPU instruction tests, leave architecture choice up to the distro
 
 * Sun Apr 19 2020 Matt Domsch <matt@domsch.com> - 1.6-0.1
 - upstream 1.6 prerelease
 - drop obsolete patches, use cmake
-- add systemd startup, direwolf user
+- add systemd startup, direwuff user
 
 * Tue Mar 31 2020 Richard Shaw <hobbes1069@gmail.com> - 1.5-6
 - Rebuild for hamlib 4.

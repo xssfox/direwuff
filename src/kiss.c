@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2013, 2014, 2016, 2017  John Langner, WB2OSZ
 //
@@ -81,7 +81,7 @@
 
 #if __WIN32__			// Stub for Windows.
 
-#include "direwolf.h"
+#include "direwuff.h"
 #include "kiss.h"
 
 void kisspt_init (struct misc_config_s *mc)
@@ -103,7 +103,7 @@ void kisspt_send_rec_packet (int chan, int kiss_cmd, unsigned char *fbuf,  int f
 #else				// Rest of file is for Linux only.
 
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 #include <unistd.h>

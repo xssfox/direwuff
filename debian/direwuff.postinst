@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -e
+
+. /usr/share/debconf/confmodule
+
+add_group_if_missing() {
+    if ! getent group direwuff >/dev/null; then
+        addgroup --system --force-badname direwuff || true
+    fi
+}
+
+add_user_if_missing() {
+    if ! id -u direwuff > /dev/null 2>&1; then
+        mkdir -m 02750 -p /var/lib/direwuff
+        adduser --system --home /var/lib/direwuff \
+          --disabled-password \
+          --force-badname direwuff \
+          --ingroup direwuff
+        adduser direwuff dialout
+        chown direwuff:direwuff /var/lib/direwuff
+    fi
+}
+
+add_group_if_missing
+add_user_if_missing
+
+db_stop
+
+#DEBHELPER#
+
+exit 0
+

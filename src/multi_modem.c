@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2013, 2014, 2015, 2016, 2019  John Langner, WB2OSZ
 //
@@ -37,7 +37,7 @@
  *
  * Originally:	The the interface application is in 3 places:
  *
- *		(a) Main program (direwolf.c or atest.c) calls 
+ *		(a) Main program (direwuff.c or atest.c) calls 
  *		    demod_init to set up modem properties and
  *		    hdlc_rec_init for the HDLC decoders.
  *
@@ -45,7 +45,7 @@
  *		    from the input audio stream.
  *
  *	   	(c) When a valid AX.25 frame is found, process_rec_frame,
- *		    provided by the application, in direwolf.c or atest.c,
+ *		    provided by the application, in direwuff.c or atest.c,
  *		    is called.  Normally this comes from hdlc_rec.c but
  *		    there are a couple other special cases to consider.
  *		    It can be called from hdlc_rec2.c if it took a long 
@@ -85,7 +85,7 @@
 
 #define DIGIPEATER_C		// Why?
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <string.h>

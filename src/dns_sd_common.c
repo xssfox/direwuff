@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2020  Heikki Hannikainen, OH7LZB
 //
@@ -39,7 +39,7 @@
 #include <string.h>
 
 /* Get a default service name to publish. By default,
- * "Dire Wolf on <hostname>", or just "Dire Wolf" if hostname cannot
+ * "Dire Wuff on <hostname>", or just "Dire Wuff" if hostname cannot
  * be obtained.
  */
 char *dns_sd_default_service_name(void)
@@ -56,10 +56,10 @@ char *dns_sd_default_service_name(void)
         if (dot)
             *dot = 0;
 
-        snprintf(sname, sizeof(sname), "Dire Wolf on %s", hostname);
+        snprintf(sname, sizeof(sname), "Dire Wuff on %s", hostname);
         return strdup(sname);
     }
     
-    return strdup("Dire Wolf");
+    return strdup("Dire Wuff");
 }
 

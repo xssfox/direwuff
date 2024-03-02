@@ -21,9 +21,9 @@ if(WIN32 OR CYGWIN)
 endif()
 
 
-# direwolf
-list(APPEND direwolf_SOURCES
-  direwolf.c
+# direwuff
+list(APPEND direwuff_SOURCES
+  direwuff.c
   ais.c
   aprs_tt.c
   audio_stats.c
@@ -100,53 +100,53 @@ list(APPEND direwolf_SOURCES
   )
 
 if(LINUX)
-  list(APPEND direwolf_SOURCES
+  list(APPEND direwuff_SOURCES
     audio.c
     )
   if(UDEV_FOUND)
-    list(APPEND direwolf_SOURCES
+    list(APPEND direwuff_SOURCES
       cm108.c
       )
   endif()
   if(AVAHI_CLIENT_FOUND)
-    list(APPEND direwolf_SOURCES
+    list(APPEND direwuff_SOURCES
       dns_sd_common.c
       dns_sd_avahi.c
       )
   endif()
   elseif(WIN32 OR CYGWIN) # windows
-    list(APPEND direwolf_SOURCES
+    list(APPEND direwuff_SOURCES
       audio_win.c
       cm108.c
 
       # icon
       # require plain gcc binary or link
-      #${CMAKE_SOURCE_DIR}/cmake/cpack/direwolf.rc
+      #${CMAKE_SOURCE_DIR}/cmake/cpack/direwuff.rc
       )
-    list(REMOVE_ITEM direwolf_SOURCES
+    list(REMOVE_ITEM direwuff_SOURCES
       dwgpsd.c
       )
   elseif(HAVE_SNDIO)
-    list(APPEND direwolf_SOURCES
+    list(APPEND direwuff_SOURCES
       audio.c
       )
   else() # macOS freebsd
-    list(APPEND direwolf_SOURCES
+    list(APPEND direwuff_SOURCES
       audio_portaudio.c
       )
     if(USE_MACOS_DNSSD)
-      list(APPEND direwolf_SOURCES
+      list(APPEND direwuff_SOURCES
         dns_sd_common.c
         dns_sd_macos.c
         )
     endif()
 endif()
 
-add_executable(direwolf
-  ${direwolf_SOURCES}
+add_executable(direwuff
+  ${direwuff_SOURCES}
   )
 
-target_link_libraries(direwolf
+target_link_libraries(direwuff
   ${GEOTRANZ_LIBRARIES}
   ${MISC_LIBRARIES}
   ${REGEX_LIBRARIES}
@@ -163,10 +163,10 @@ target_link_libraries(direwolf
   )
 
 if(WIN32 OR CYGWIN)
-  set_target_properties(direwolf
+  set_target_properties(direwuff
     PROPERTIES COMPILE_FLAGS "-DUSE_REGEX_STATIC"
     )
-  target_link_libraries(direwolf winmm ws2_32 setupapi)
+  target_link_libraries(direwuff winmm ws2_32 setupapi)
 endif()
 
 # decode_aprs
@@ -559,7 +559,7 @@ if(WIN32 OR CYGWIN)
 endif()
 
 
-install(TARGETS direwolf DESTINATION ${INSTALL_BIN_DIR})
+install(TARGETS direwuff DESTINATION ${INSTALL_BIN_DIR})
 install(TARGETS decode_aprs DESTINATION ${INSTALL_BIN_DIR})
 install(TARGETS text2tt DESTINATION ${INSTALL_BIN_DIR})
 install(TARGETS tt2text DESTINATION ${INSTALL_BIN_DIR})

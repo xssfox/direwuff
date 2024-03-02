@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2013, 2014, 2015  John Langner, WB2OSZ
 //
@@ -34,7 +34,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -892,7 +892,7 @@ static void xmit_object_report (int i, int first_time)
 	  int flen;
 
  	  // TODO1.3:  Put a wrapper around this so we only call one function to send by all methods.
-	  // We see the same sequence in direwolf.c.
+	  // We see the same sequence in direwuff.c.
 
 	  flen = ax25_pack(pp, fbuf);
 

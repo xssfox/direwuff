@@ -1,6 +1,6 @@
 
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2012, 2013, 2014, 2019  John Langner, WB2OSZ
 //
@@ -80,7 +80,7 @@
  *--------------------------------------------------------------------*/
 
 
-#include "direwolf.h"		// Should be first.  includes windows.h
+#include "direwuff.h"		// Should be first.  includes windows.h
 
 #include <stdio.h>
 #include <stdlib.h>

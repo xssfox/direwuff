@@ -2,7 +2,7 @@
 //	****** PRELIMINARY - needs work ******
 
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 
 
@@ -32,7 +32,7 @@
  *			'k'	Ask to start receiving RAW AX25 frames.
  *			'm'	Ask to start receiving Monitor AX25 frames.
  *			'V'	Transmit UI data frame.
- *			'H'	Report recently heard stations.  Not implemented yet in direwolf.
+ *			'H'	Report recently heard stations.  Not implemented yet in direwuff.
  *			'K'	Transmit raw AX.25 frame.		
  *			'y'	Ask Outstanding frames waiting on a Port   
  *			'Y'	How many frames waiting for transmit for a particular station 
@@ -65,7 +65,7 @@
  *---------------------------------------------------------------*/
 
 
-#include "direwolf.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
+#include "direwuff.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
 
 #if __WIN32__
 #include <winsock2.h>
@@ -145,7 +145,7 @@
 struct agw_hdr_s {		/* Command header. */
 
   unsigned char portx;		/* 0 for first, 1 for second, etc. */
-				/* Dire Wolf uses the term "channel" to avoid confusion with TCP ports */
+				/* Dire Wuff uses the term "channel" to avoid confusion with TCP ports */
 				/* or other places port might be used. */
   unsigned char reserved1;
   unsigned char reserved2;

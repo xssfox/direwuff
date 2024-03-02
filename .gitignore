@@ -44,7 +44,7 @@ z*
 aclients
 atest
 decode_aprs
-direwolf
+direwuff
 gen_fff
 gen_packets
 ll2utm
@@ -54,9 +54,9 @@ tt2text
 ttcalc
 utm2ll
 
-direwolf.conf
+direwuff.conf
 fsk_fast_filter.h
-direwolf.desktop
+direwuff.desktop
 
 
 # =========================
@@ -111,3 +111,6 @@ $RECYCLE.BIN/
 # cmake
 build*/
 tmp/
+
+# vscode
+.vscode

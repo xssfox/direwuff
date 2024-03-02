@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2012, 2013, 2014, 2015, 2017, 2022, 2023  John Langner, WB2OSZ
 //
@@ -34,7 +34,7 @@
  *
  *------------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 #include <time.h>
@@ -2530,11 +2530,11 @@ static void aprs_status_report (decode_aprs_t *A, char *info, int ilen)
  *------------------------------------------------------------------*/
 
 /*
-https://groups.io/g/direwolf/topic/95961245#7357
+https://groups.io/g/direwuff/topic/95961245#7357
 
-What APRS queries should DireWolf respond to? Well, it should be configurable whether it responds to queries at all, in case some other application is using DireWolf as a dumb TNC (KISS or AGWPE style) and wants to handle the queries itself.
+What APRS queries should DireWuff respond to? Well, it should be configurable whether it responds to queries at all, in case some other application is using DireWuff as a dumb TNC (KISS or AGWPE style) and wants to handle the queries itself.
 
-Assuming query responding is enabled, the following broadcast queries should be supported (if the corresponding data is configured in DireWolf):
+Assuming query responding is enabled, the following broadcast queries should be supported (if the corresponding data is configured in DireWuff):
 
 ?APRS (I am an APRS station)
 ?IGATE (I am operating as a I-gate)
@@ -2696,7 +2696,7 @@ static void aprs_general_query (decode_aprs_t *A, char *info, int ilen, int quie
  *------------------------------------------------------------------*/
 
 /*
-https://groups.io/g/direwolf/topic/95961245#7357
+https://groups.io/g/direwuff/topic/95961245#7357
 
 The following directed queries (sent as bodies of APRS text messages) would also be useful (if corresponding data configured):
 
@@ -2705,7 +2705,7 @@ The following directed queries (sent as bodies of APRS text messages) would also
 ?APRSD (all stations directly heard [no digipeat hops] by local station)
 ?APRSO (any Objects/Items originated by this station)
 ?APRSH (how often or how many times the specified 3rd station was heard by the queried station)
-?APRSS (immediately send the Status message if configured) (can DireWolf do Status messages?)
+?APRSS (immediately send the Status message if configured) (can DireWuff do Status messages?)
 
 Lynn KJ4ERJ and I have implemented a non-standard query which might be useful:
 
@@ -4929,7 +4929,7 @@ static void process_comment (decode_aprs_t *A, char *pstart, int clen)
  * Restriction:	MIC-E message type can be problematic because it
  *		it can use unprintable characters in the information field.
  *
- *		Dire Wolf and aprs.fi print it in hexadecimal.  Example:
+ *		Dire Wuff and aprs.fi print it in hexadecimal.  Example:
  *
  *		KB1KTR-8>TR3U6T,KB1KTR-9*,WB2OSZ-1*,WIDE2*,qAR,W1XM:`c1<0x1f>l!t>/>"4^}
  *		                                                       ^^^^^^

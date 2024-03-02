@@ -1,6 +1,6 @@
 
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2013, 2014  John Langner, WB2OSZ
 //
@@ -33,7 +33,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -553,7 +553,7 @@ int encode_position (int messaging, int compressed, double lat, double lon, int 
 	if (compressed) {
 
 // Thought:
-// https://groups.io/g/direwolf/topic/92718535#6886
+// https://groups.io/g/direwuff/topic/92718535#6886
 // When speed is zero, we could put the altitude in the compressed
 // position rather than having /A=999999.
 // However, the resolution would be decreased and that could be important

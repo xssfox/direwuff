@@ -5,7 +5,7 @@
 
 #include "regex.h"
 
-#include "direwolf.h"		/* for MAX_CHANS */
+#include "direwuff.h"		/* for MAX_CHANS */
 #include "ax25_pad.h"		/* for packet_t */
 #include "audio.h"		/* for radio channel properties */
 

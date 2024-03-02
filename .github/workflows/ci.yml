@@ -1,4 +1,4 @@
-name: 'build direwolf'
+name: 'build direwuff'
 
 on:
   # permit to manually trigger the CI
@@ -95,7 +95,7 @@ jobs:
             sudo apt-get install libasound2-dev libudev-dev libhamlib-dev gpsd
           elif [ "$RUNNER_OS" == "macOS" ]; then
             # just to simplify I use homebrew but
-            # we can use macports (latest direwolf is already available as port)
+            # we can use macports (latest direwuff is already available as port)
             brew install portaudio hamlib gpsd
           elif [ "$RUNNER_OS" == "Windows" ]; then
             # add the folder to PATH
@@ -151,10 +151,10 @@ jobs:
       - name: archive binary
         uses: actions/upload-artifact@v2
         with:
-          name: direwolf_${{ matrix.config.os }}_${{ matrix.config.arch }}_${{ github.sha }}
+          name: direwuff_${{ matrix.config.os }}_${{ matrix.config.arch }}_${{ github.sha }}
           path: |
-            ${{github.workspace}}/build/direwolf-*.zip
-            ${{github.workspace}}/build/direwolf.conf
+            ${{github.workspace}}/build/direwuff-*.zip
+            ${{github.workspace}}/build/direwuff.conf
             ${{github.workspace}}/build/src/*
             ${{github.workspace}}/build/CMakeCache.txt
             !${{github.workspace}}/build/src/cmake_install.cmake

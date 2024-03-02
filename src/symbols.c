@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2012, 2013, 2014, 2015, 2022  John Langner, WB2OSZ
 //
@@ -26,7 +26,7 @@
  *
  *------------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 #include <assert.h>
@@ -268,15 +268,15 @@ static const char *search_locations[] = {
 	(const char *) "data/symbols-new.txt",		// Windows with Cmake
 	(const char *) "../data/symbols-new.txt",	// ?
 #ifndef __WIN32__
-	(const char *) "/usr/local/share/direwolf/symbols-new.txt",
-	(const char *) "/usr/share/direwolf/symbols-new.txt",
+	(const char *) "/usr/local/share/direwuff/symbols-new.txt",
+	(const char *) "/usr/share/direwuff/symbols-new.txt",
 #endif
 #if __APPLE__
-	// https://groups.yahoo.com/neo/groups/direwolf_packet/conversations/messages/2458
+	// https://groups.yahoo.com/neo/groups/direwuff_packet/conversations/messages/2458
 	// Adding the /opt/local tree since macports typically installs there.  Users might want their
 	// INSTALLDIR (see Makefile.macosx) to mirror that.  If so, then we need to search the /opt/local
 	// path as well.
-	(const char *) "/opt/local/share/direwolf/symbols-new.txt",
+	(const char *) "/opt/local/share/direwuff/symbols-new.txt",
 #endif
 	(const char *) NULL		// Important - Indicates end of list.
 };
@@ -309,7 +309,7 @@ static const char *search_locations[] = {
  *		Windows version:  File must be in current working directory.
  *
  *		Linux version: Search order is current working directory
- *			then /usr/share/direwolf directory.
+ *			then /usr/share/direwuff directory.
  *
  *------------------------------------------------------------------*/
 

@@ -1,4 +1,4 @@
-/var/log/direwolf/stdout /var/log/direwolf/stderr {
+/var/log/direwuff/stdout /var/log/direwuff/stderr {
     missingok
     rotate 30
     daily
@@ -10,7 +10,7 @@
     dateyesterday
  }
 
-/var/log/direwolf/*.log {
+/var/log/direwuff/*.log {
     missingok
     daily
     rotate 30

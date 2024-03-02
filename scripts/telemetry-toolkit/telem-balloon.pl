@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# Part of Dire Wolf APRS Telemetry Toolkit, WB2OSZ, 2015
+# Part of Dire Wuff APRS Telemetry Toolkit, WB2OSZ, 2015
 
 # In a real situation this would obtain data from sensors.
 # For demonstration purposes we use historical data supplied on the command line.

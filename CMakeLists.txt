@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.1.0)
 
-project(direwolf)
+project(direwuff)
 
 # configure version
-set(direwolf_VERSION_MAJOR "1")
-set(direwolf_VERSION_MINOR "8")
-set(direwolf_VERSION_PATCH "0")
-set(direwolf_VERSION_SUFFIX "Development")
+set(direwuff_VERSION_MAJOR "1")
+set(direwuff_VERSION_MINOR "8")
+set(direwuff_VERSION_PATCH "0")
+set(direwuff_VERSION_SUFFIX "Development")
 
 # options
 # See Issue 297.
@@ -25,7 +25,7 @@ set(CMAKE_C_STANDARD 99)
 # Set additional project information
 set(COMPANY "wb2osz")
 add_definitions("-DCOMPANY=\"${COMPANY}\"")
-set(APPLICATION_NAME "Dire Wolf")
+set(APPLICATION_NAME "Dire Wuff")
 add_definitions("-DAPPLICATION_NAME=\"${APPLICATION_NAME}\"")
 set(APPLICATION_MAINTAINER="John Langner, WB2OSZ")
 set(COPYRIGHT "Copyright (c) 2019 John Langner, WB2OSZ. All rights reserved.")
@@ -53,19 +53,19 @@ if(GIT_FOUND AND EXISTS "${CMAKE_SOURCE_DIR}/.git/")
     OUTPUT_STRIP_TRAILING_WHITESPACE)
   if(NOT res)
     string(REGEX REPLACE "^v([0-9]+)\.([0-9]+)\.([0-9]+)-" "" git_commit ${out})
-    set(direwolf_VERSION_SUFFIX "-${git_commit}")
-    set(direwolf_VERSION_COMMIT "${git_commit}")
+    set(direwuff_VERSION_SUFFIX "-${git_commit}")
+    set(direwuff_VERSION_COMMIT "${git_commit}")
   endif()
 endif()
 
 # set variables
-set(direwolf_VERSION "${direwolf_VERSION_MAJOR}.${direwolf_VERSION_MINOR}.${direwolf_VERSION_PATCH}${direwolf_VERSION_SUFFIX}")
-message(STATUS "${APPLICATION_NAME} Version: ${direwolf_VERSION}")
-add_definitions("-DIREWOLF_VERSION=\"${direwolf_VERSION}\"")
-add_definitions("-DMAJOR_VERSION=${direwolf_VERSION_MAJOR}")
-add_definitions("-DMINOR_VERSION=${direwolf_VERSION_MINOR}")
-if(direwolf_VERSION_COMMIT)
-  add_definitions("-DEXTRA_VERSION=${direwolf_VERSION_COMMIT}")
+set(direwuff_VERSION "${direwuff_VERSION_MAJOR}.${direwuff_VERSION_MINOR}.${direwuff_VERSION_PATCH}${direwuff_VERSION_SUFFIX}")
+message(STATUS "${APPLICATION_NAME} Version: ${direwuff_VERSION}")
+add_definitions("-DIREWUFF_VERSION=\"${direwuff_VERSION}\"")
+add_definitions("-DMAJOR_VERSION=${direwuff_VERSION_MAJOR}")
+add_definitions("-DMINOR_VERSION=${direwuff_VERSION_MINOR}")
+if(direwuff_VERSION_COMMIT)
+  add_definitions("-DEXTRA_VERSION=${direwuff_VERSION_COMMIT}")
 endif()
 
 set(CUSTOM_SRC_DIR "${CMAKE_SOURCE_DIR}/src")
@@ -90,18 +90,18 @@ set(CPACK_STRIP_FILES true)
 set(CPACK_PACKAGE_NAME "${CMAKE_PROJECT_NAME}")
 # This has architecture of the build machine, not the target platform.
 # e.g. Comes out as x86_64 when building for i686 target platform.
-#set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${direwolf_VERSION}_${CMAKE_SYSTEM_PROCESSOR}")
+#set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${direwuff_VERSION}_${CMAKE_SYSTEM_PROCESSOR}")
 # We don't know the target yet so this is set after FindCPUflags.
-set(CPACK_PACKAGE_CONTACT "https://github.com/wb2osz/direwolf")
-SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Dire Wolf is an AX.25 soundcard TNC, digipeater, APRS IGate, GPS tracker, and APRStt gateway")
+set(CPACK_PACKAGE_CONTACT "https://github.com/wb2osz/direwuff")
+SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Dire Wuff is an AX.25 soundcard TNC, digipeater, APRS IGate, GPS tracker, and APRStt gateway")
 set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_SOURCE_DIR}/README.md")
 set(CPACK_RESOURCE_FILE_README "${CMAKE_SOURCE_DIR}/README.md")
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE")
 set(CPACK_SOURCE_IGNORE_FILES "${PROJECT_BINARY_DIR};/.git/;.gitignore;menu.yml;.travis.yml;.appveyor.yml;default.nix;.envrc;TODOs.org;/.scripts/")
-SET(CPACK_PACKAGE_VERSION "${direwolf_VERSION}")
-SET(CPACK_PACKAGE_VERSION_MAJOR "${direwolf_VERSION_MAJOR}")
-SET(CPACK_PACKAGE_VERSION_MINOR "${direwolf_VERSION_MINOR}")
-SET(CPACK_PACKAGE_VERSION_PATCH "${direwolf_VERSION_PATCH}")
+SET(CPACK_PACKAGE_VERSION "${direwuff_VERSION}")
+SET(CPACK_PACKAGE_VERSION_MAJOR "${direwuff_VERSION_MAJOR}")
+SET(CPACK_PACKAGE_VERSION_MINOR "${direwuff_VERSION_MINOR}")
+SET(CPACK_PACKAGE_VERSION_PATCH "${direwuff_VERSION_PATCH}")
 SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libasound2,libgps23")
 
 # if we don't set build_type
@@ -125,9 +125,9 @@ include(FindCompiler)
 include(FindCPUflags)
 
 if(${ARCHITECTURE} MATCHES "x86")
-  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${direwolf_VERSION}_i686")
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${direwuff_VERSION}_i686")
 else()
-  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${direwolf_VERSION}_${ARCHITECTURE}")
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${direwuff_VERSION}_${ARCHITECTURE}")
 endif()
 
 # auto include current directory
@@ -290,7 +290,7 @@ include(CheckSymbolExists)
 #
 # Apparently cmake does not recognize this style.
 # Keep this here for BSD type systems where it behaves as expected.
-# We will need to add a hack in direwolf.h to define these if glibc version >= 2.38.
+# We will need to add a hack in direwuff.h to define these if glibc version >= 2.38.
 
 check_symbol_exists(strlcpy string.h HAVE_STRLCPY)
 if(HAVE_STRLCPY)
@@ -378,7 +378,7 @@ add_subdirectory(${CUSTOM_REGEX_DIR})
 add_subdirectory(${CUSTOM_HIDAPI_DIR})
 add_subdirectory(${CUSTOM_MISC_DIR})
 
-# direwolf source code and utilities
+# direwuff source code and utilities
 add_subdirectory(src)
 
 # ctest

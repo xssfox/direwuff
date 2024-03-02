@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2016, 2017, 2018, 2023  John Langner, WB2OSZ
 //
@@ -142,7 +142,7 @@
  *
  *			Connect to/from a KPC-3+ and send I frames in both directions.
  *			Same with TM-D710A.
- *			v2.2 connect between two instances of direwolf.  (Can't find another v2.2 for testing.)
+ *			v2.2 connect between two instances of direwuff.  (Can't find another v2.2 for testing.)
  *			Modulo 8 & 128 sequence numbers.
  *			Recovery from simulated transmission errors using either REJ or SREJ.
  *			XID frame for parameter negotiation.
@@ -165,7 +165,7 @@
  *
  *------------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 
 #include <stdlib.h>
@@ -1603,7 +1603,7 @@ void dl_unregister_callsign (dlq_item_t *E)
  *		- Incoming connected data, from application still in the queue.
  *		- I frames which have been transmitted but not yet acknowledged.
  *
- * Confusion:	https://github.com/wb2osz/direwolf/issues/427
+ * Confusion:	https://github.com/wb2osz/direwuff/issues/427
  *
  *		There are different, inconsistent versions of the protocol spec.
  *
@@ -3217,7 +3217,7 @@ static int is_ns_in_window (ax25_dlsm_t *S, int ns)
  * Version 1.5:	The X.25 protocol spec allows additional sequence numbers in one frame
  *		by using the INFO part.
  *		By default that feature is off but can be negotiated with XID.
- *		We should be able to use this between two direwolf stations while
+ *		We should be able to use this between two direwuff stations while
  *		maintaining compatibility with the original AX.25 v2.2.
  *
  *------------------------------------------------------------------------------*/
@@ -6250,7 +6250,7 @@ static void select_t1_value (ax25_dlsm_t *S)
 	}
 
 
-// See  https://groups.io/g/direwolf/topic/100782658#8542
+// See  https://groups.io/g/direwuff/topic/100782658#8542
 // Perhaps the demands of file transfer lead to this problem.
 
 // "Temporary" hack.

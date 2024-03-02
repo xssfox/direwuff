@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2013, 2014, 2015, 2016, 2019, 2021, 2023  John Langner, WB2OSZ
 //
@@ -68,7 +68,7 @@
  *------------------------------------------------------------------*/
 
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>     
 #include <stdlib.h>    
@@ -330,7 +330,7 @@ int main(int argc, char **argv)
               text_color_set(DW_COLOR_INFO); 
               dw_printf ("Data rate set to %d bits / second.\n", modem.achan[0].baud);
 
-	      /* We have similar logic in direwolf.c, config.c, gen_packets.c, and atest.c, */
+	      /* We have similar logic in direwuff.c, config.c, gen_packets.c, and atest.c, */
 	      /* that need to be kept in sync.  Maybe it could be a common function someday. */
 
 	      if (modem.achan[0].baud == 100) {			// What was this for?
@@ -392,7 +392,7 @@ int main(int argc, char **argv)
 	      g_opt = 1;
               break;
 
-            case 'j':				/* -j V.26 compatible with earlier direwolf. */
+            case 'j':				/* -j V.26 compatible with earlier direwuff. */
 
 	      j_opt = 1;
               break;
@@ -567,7 +567,7 @@ int main(int argc, char **argv)
               dw_printf ("Using G3RUH mode regardless of bit rate.\n");
 	}
 
-	if (j_opt) {			/* -j V.26 compatible with earlier direwolf. */
+	if (j_opt) {			/* -j V.26 compatible with earlier direwuff. */
 
 	      modem.achan[0].v26_alternative = V26_A;
               modem.achan[0].modem_type = MODEM_QPSK;
@@ -827,7 +827,7 @@ static void usage (char **argv)
 	dw_printf ("  -b <number>   Bits / second for data.  Default is %d.\n", DEFAULT_BAUD);
 	dw_printf ("  -B <number>   Bits / second for data.  Proper modem selected for 300, 1200, 2400, 4800, 9600, EAS.\n");
 	dw_printf ("  -g            Scrambled baseband rather than AFSK.\n");
-	dw_printf ("  -j            2400 bps QPSK compatible with direwolf <= 1.5.\n");
+	dw_printf ("  -j            2400 bps QPSK compatible with direwuff <= 1.5.\n");
 	dw_printf ("  -J            2400 bps QPSK compatible with MFJ-2400.\n");
 	dw_printf ("  -X n           1 to enable FX.25 transmit.  16, 32, 64 for specific number of check bytes.\n");
 	dw_printf ("  -I n           Enable IL2P transmit.  n=1 is recommended.  0 uses weaker FEC.\n");

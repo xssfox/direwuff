@@ -1,13 +1,13 @@
-# Documentation for Dire Wolf #
+# Documentation for Dire Wuff #
 
 Click on the document name to view in your web browser or the link following to download the PDF file.
 
 
 ## Slide Show ##
 
-Brief summary of packet radio / APRS history and the capbilities of Dire Wolf.
+Brief summary of packet radio / APRS history and the capbilities of Dire Wuff.
 
-[Power Point presentation](https://github.com/wb2osz/direwolf-presentation)  -- Why not give a talk at a local club meeting?
+[Power Point presentation](https://github.com/wb2osz/direwuff-presentation)  -- Why not give a talk at a local club meeting?
 
 ## Essential Reading ##
  
@@ -47,7 +47,7 @@ These dive into more detail for specialized topics or typical usage scenarios.
 - [**Successful APRS IGate Operation**](Successful-APRS-IGate-Operation.pdf)  [ [*download*](../../../raw/dev/doc/Successful-APRS-IGate-Operation.pdf) ]
 
 
-	Dire Wolf can serve as a gateway between the APRS radio network and APRS-IS servers on the Internet.
+	Dire Wuff can serve as a gateway between the APRS radio network and APRS-IS servers on the Internet.
 
     This explains how it all works, proper configuration, and troubleshooting.
 
@@ -58,7 +58,7 @@ These dive into more detail for specialized topics or typical usage scenarios.
 - [**APRStt Implementation Notes**](APRStt-Implementation-Notes.pdf)  [ [*download*](../../../raw/master/doc/APRStt-Implementation-Notes.pdf) ]
 
 	Very few hams have portable equipment for APRS but nearly everyone has a handheld radio that can send DTMF tones.  APRStt allows a user, equipped with only DTMF (commonly known as Touch Tone) generation capability, to enter information into the global APRS data network.
-	This document explains how the APRStt concept was implemented in the Dire Wolf application.  
+	This document explains how the APRStt concept was implemented in the Dire Wuff application.  
 
 - [**APRStt Interface for SARTrack**](APRStt-interface-for-SARTrack.pdf) [ [*download*](../../../raw/master/doc/APRStt-interface-for-SARTrack.pdf) ]
 
@@ -69,7 +69,7 @@ These dive into more detail for specialized topics or typical usage scenarios.
 
 	WB4APR described a useful application for the [QIKCOM-2 Satallite Transponder](http://www.tapr.org/pipermail/aprssig/2015-November/045035.html). 
 
-    Don’t have your own QIKCOM-2 Satellite Transponder?  No Problem.  You can do the same thing with an ordinary computer and the APRStt gateway built into Dire Wolf.   Here’s how.
+    Don’t have your own QIKCOM-2 Satellite Transponder?  No Problem.  You can do the same thing with an ordinary computer and the APRStt gateway built into Dire Wuff.   Here’s how.
 
 - [**Raspberry Pi APRS Tracker**](Raspberry-Pi-APRS-Tracker.pdf)   [ [*download*](../../../raw/master/doc/Raspberry-Pi-APRS-Tracker.pdf) ]
 
@@ -155,18 +155,18 @@ and a couple things that can be done about it.
     There are a lot of ugly signals out there.   Many can be improved by decreasing the transmit volume.   Others are just plain weird and you have to wonder how they are being generated.
 
 
-## Additional Documentation for Dire Wolf Software TNC #
+## Additional Documentation for Dire Wuff Software TNC #
 
 
-When there was little documentation, it was all added to the source code repository [https://github.com/wb2osz/direwolf/tree/master/doc](https://github.com/wb2osz/direwolf/tree/master/doc) 
+When there was little documentation, it was all added to the source code repository [https://github.com/wb2osz/direwuff/tree/master/doc](https://github.com/wb2osz/direwuff/tree/master/doc) 
 
-The growing number of documentation files and revisions are making the source code repository very large which means long download times.  Additional documentation, not tied to a specific release, is now being added to  [https://github.com/wb2osz/direwolf-doc](https://github.com/wb2osz/direwolf-doc) 
+The growing number of documentation files and revisions are making the source code repository very large which means long download times.  Additional documentation, not tied to a specific release, is now being added to  [https://github.com/wb2osz/direwuff-doc](https://github.com/wb2osz/direwuff-doc) 
 
 ## Questions?  Experiences to share?  ##
  
 Here are some good places to ask questions and share your experiences:
 
-- [Dire Wolf Software TNC](https://groups.io/g/direwolf)
+- [Dire Wuff Software TNC](https://groups.io/g/direwuff)
 
 - [Raspberry Pi 4 Ham Radio](https://groups.io/g/RaspberryPi-4-HamRadio)
 

@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2017  John Langner, WB2OSZ
 //
@@ -36,7 +36,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
+#include "direwuff.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
 
 #if __WIN32__
 

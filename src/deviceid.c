@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2023  John Langner, WB2OSZ
 //
@@ -34,11 +34,11 @@
 
 
 #if TEST
-#define HAVE_STRLCPY 1		// prevent defining in direwolf.h
+#define HAVE_STRLCPY 1		// prevent defining in direwuff.h
 #define HAVE_STRLCAT 1
 #endif
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -140,7 +140,7 @@ int main (int argc, char *argv[])
 
 	deviceid_decode_dest ("APDW18", device, sizeof(device));
 	dw_printf ("%s\n", device);
-	assert (strcmp(device, "WB2OSZ DireWolf") == 0);
+	assert (strcmp(device, "WB2OSZ DireWuff") == 0);
 
 	deviceid_decode_dest ("APD123", device, sizeof(device));
 	dw_printf ("%s\n", device);
@@ -227,15 +227,15 @@ static const char *search_locations[] = {
 	(const char *) "data/tocalls.yaml",		// Windows with CMake
 	(const char *) "../data/tocalls.yaml",		// Source tree
 #ifndef __WIN32__
-	(const char *) "/usr/local/share/direwolf/tocalls.yaml",
-	(const char *) "/usr/share/direwolf/tocalls.yaml",
+	(const char *) "/usr/local/share/direwuff/tocalls.yaml",
+	(const char *) "/usr/share/direwuff/tocalls.yaml",
 #endif
 #if __APPLE__
-	// https://groups.yahoo.com/neo/groups/direwolf_packet/conversations/messages/2458
+	// https://groups.yahoo.com/neo/groups/direwuff_packet/conversations/messages/2458
 	// Adding the /opt/local tree since macports typically installs there.  Users might want their
 	// INSTALLDIR (see Makefile.macosx) to mirror that.  If so, then we need to search the /opt/local
 	// path as well.
-	(const char *) "/opt/local/share/direwolf/tocalls.yaml",
+	(const char *) "/opt/local/share/direwuff/tocalls.yaml",
 #endif
 	(const char *) NULL		// Important - Indicates end of list.
 };

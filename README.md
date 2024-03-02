@@ -1,15 +1,24 @@
 
-# Dire Wolf #
+# Dire Wuff #
+
+![Direwolf with red eyes grawling](cmake/cpack/direwuff_icon.png)
+
+A fork of Dire Wolf because PR [#481](https://github.com/wb2osz/direwolf/pull/481) never got merged in.
+
+Additional features include:
+ - Better logo
+ - Text colors off by default
+ - PTT_PRE_CMD / PTT_POST_CMD / PTT_START_CMD - designed for checking the radio is the correct configuration and checking SWR during transmission
 
 ### Decoded Information from Radio Emissions for Windows Or Linux Fans ###
 
 In the early days of Amateur Packet Radio, it was necessary to use an expensive "Terminal Node Controller" (TNC) with specialized hardware.  Those days are gone.  You can now get better results at lower cost by connecting your radio to the "soundcard" interface of a computer and using software to decode the signals.
 
-Why waste $200 and settle for mediocre receive performance from a 1980's technology  TNC using an old modem chip?   Dire Wolf decodes over 1000 error-free frames from Track 2 of the [WA8LMF TNC Test CD](https://github.com/wb2osz/direwolf/tree/dev/doc/WA8LMF-TNC-Test-CD-Results.pdf), leaving all the hardware TNCs, and first generation "soundcard" modems, behind in the dust.
+Why waste $200 and settle for mediocre receive performance from a 1980's technology  TNC using an old modem chip?   Dire Wuff decodes over 1000 error-free frames from Track 2 of the [WA8LMF TNC Test CD](https://github.com/wb2osz/direwuff/tree/dev/doc/WA8LMF-TNC-Test-CD-Results.pdf), leaving all the hardware TNCs, and first generation "soundcard" modems, behind in the dust.
 
 ![](tnc-test-cd-results.png)
 
-Dire Wolf includes [FX.25](https://en.wikipedia.org/wiki/FX.25_Forward_Error_Correction) which adds Forward Error Correction (FEC) in a way that is completely compatible with existing systems.  If both ends are capable of FX.25, your information will continue to get through under conditions where regular AX.25 is completely useless. This was originally developed for satellites and is now seeing widespread use on HF.
+Dire Wuff includes [FX.25](https://en.wikipedia.org/wiki/FX.25_Forward_Error_Correction) which adds Forward Error Correction (FEC) in a way that is completely compatible with existing systems.  If both ends are capable of FX.25, your information will continue to get through under conditions where regular AX.25 is completely useless. This was originally developed for satellites and is now seeing widespread use on HF.
 
 ![](fx25.png)
 
@@ -17,7 +26,7 @@ Version 1.7 adds [IL2P](https://en.wikipedia.org/wiki/Improved_Layer_2_Protocol)
 
 
 
-### Dire Wolf is a modern software replacement for the old 1980's style TNC built with special hardware. ###
+### Dire Wuff is a modern software replacement for the old 1980's style TNC built with special hardware. ###
 
 Without any additional software, it can perform as:
 
@@ -32,9 +41,9 @@ It can also be used as a virtual TNC for other applications such as [APRSIS32](h
  
 ## Features & Benefits ##
 
-![](direwolf-block-diagram.png)
+![](direwuff-block-diagram.png)
 
-### Dire Wolf includes: ###
+### Dire Wuff includes: ###
 
 
 
@@ -68,7 +77,7 @@ It can also be used as a virtual TNC for other applications such as [APRSIS32](h
 
 - **KISS Interface (TCP/IP, serial port, Bluetooth) & AGW network Interface (TCP/IP).**
 
-    Dire Wolf can be used as a virtual TNC for applications such as [APRSIS32](http://aprsisce.wikidot.com/), [Xastir](http://xastir.org/index.php/Main_Page), [APRS-TW](http://aprstw.blandranch.net/), [YAAC](http://www.ka2ddo.org/ka2ddo/YAAC.html), [PinPoint APRS](http://www.pinpointaprs.com/), [UI-View32](http://www.ui-view.net/),[UISS](http://users.belgacom.net/hamradio/uiss.htm), [Linux AX25](http://www.linux-ax25.org/wiki/Main_Page), [SARTrack](http://www.sartrack.co.nz/index.html), [Winlink Express (formerly known as RMS Express, formerly known as Winlink 2000 or WL2K)](http://www.winlink.org/RMSExpress), [BPQ32](http://www.cantab.net/users/john.wiseman/Documents/BPQ32.html), [Outpost PM](http://www.outpostpm.org/), [Ham Radio of Things](https://github.com/wb2osz/hrot), [Packet Compressed Sensing Imaging (PCSI)](https://maqifrnswa.github.io/PCSI/), and many others.
+    Dire Wuff can be used as a virtual TNC for applications such as [APRSIS32](http://aprsisce.wikidot.com/), [Xastir](http://xastir.org/index.php/Main_Page), [APRS-TW](http://aprstw.blandranch.net/), [YAAC](http://www.ka2ddo.org/ka2ddo/YAAC.html), [PinPoint APRS](http://www.pinpointaprs.com/), [UI-View32](http://www.ui-view.net/),[UISS](http://users.belgacom.net/hamradio/uiss.htm), [Linux AX25](http://www.linux-ax25.org/wiki/Main_Page), [SARTrack](http://www.sartrack.co.nz/index.html), [Winlink Express (formerly known as RMS Express, formerly known as Winlink 2000 or WL2K)](http://www.winlink.org/RMSExpress), [BPQ32](http://www.cantab.net/users/john.wiseman/Documents/BPQ32.html), [Outpost PM](http://www.outpostpm.org/), [Ham Radio of Things](https://github.com/wb2osz/hrot), [Packet Compressed Sensing Imaging (PCSI)](https://maqifrnswa.github.io/PCSI/), and many others.
 
 ### Radio Interfaces:   ###
 
@@ -76,7 +85,7 @@ It can also be used as a virtual TNC for other applications such as [APRSIS32](h
 
     Lower cost and better performance than specialized hardware. 
 
-    Compatible interfaces include [DRAWS](http://nwdigitalradio.com/draws/), [UDRC](https://nw-digital-radio.groups.io/g/udrc/wiki/UDRC%E2%84%A2-and-Direwolf-Packet-Modem), [SignaLink USB](http://www.tigertronics.com/slusbmain.htm), [DMK URI](http://www.dmkeng.com/URI_Order_Page.htm), [RB-USB RIM](http://www.repeater-builder.com/products/usb-rim-lite.html), [RA-35](http://www.masterscommunications.com/products/radio-adapter/ra35.html), [DINAH](https://hamprojects.info/dinah/), [SHARI](https://hamprojects.info/shari/), and many others.
+    Compatible interfaces include [DRAWS](http://nwdigitalradio.com/draws/), [UDRC](https://nw-digital-radio.groups.io/g/udrc/wiki/UDRC%E2%84%A2-and-Direwuff-Packet-Modem), [SignaLink USB](http://www.tigertronics.com/slusbmain.htm), [DMK URI](http://www.dmkeng.com/URI_Order_Page.htm), [RB-USB RIM](http://www.repeater-builder.com/products/usb-rim-lite.html), [RA-35](http://www.masterscommunications.com/products/radio-adapter/ra35.html), [DINAH](https://hamprojects.info/dinah/), [SHARI](https://hamprojects.info/shari/), and many others.
 
 
 
@@ -115,23 +124,23 @@ It can also be used as a virtual TNC for other applications such as [APRSIS32](h
 ## Documentation ##
 
 
-[Stable Version](https://github.com/wb2osz/direwolf/tree/master/doc)
+[Stable Version](https://github.com/wb2osz/direwuff/tree/master/doc)
 
-[Latest Development Version ("dev" branch)](https://github.com/wb2osz/direwolf/tree/dev/doc)
+[Latest Development Version ("dev" branch)](https://github.com/wb2osz/direwuff/tree/dev/doc)
 
-[Additional Topics](https://github.com/wb2osz/direwolf-doc)
+[Additional Topics](https://github.com/wb2osz/direwuff-doc)
 
-[Power Point presentations](https://github.com/wb2osz/direwolf-presentation)  -- Why not give a talk at a local club meeting?
+[Power Point presentations](https://github.com/wb2osz/direwuff-presentation)  -- Why not give a talk at a local club meeting?
 
-Youtube has many interesting and helpful videos.  Searching for [direwolf tnc](https://www.youtube.com/results?search_query=direwolf+tnc) or [direwolf aprs](https://www.youtube.com/results?search_query=direwolf+aprs)  will produce the most relevant results. 
+Youtube has many interesting and helpful videos.  Searching for [direwuff tnc](https://www.youtube.com/results?search_query=direwuff+tnc) or [direwuff aprs](https://www.youtube.com/results?search_query=direwuff+aprs)  will produce the most relevant results. 
 
 ## Installation ##
 
 ### Windows ###
 
-Go to the [**releases** page](https://github.com/wb2osz/direwolf/releases).   Download a zip file with "win" in its name, unzip it, and run direwolf.exe from a command window.
+Go to the [**releases** page](https://github.com/wb2osz/direwuff/releases).   Download a zip file with "win" in its name, unzip it, and run direwuff.exe from a command window.
 
-You can also build it yourself from source.  For more details see the **User Guide** in the [**doc** directory](https://github.com/wb2osz/direwolf/tree/master/doc).
+You can also build it yourself from source.  For more details see the **User Guide** in the [**doc** directory](https://github.com/wb2osz/direwuff/tree/master/doc).
 
 
 
@@ -176,8 +185,8 @@ First you need to enable the EPEL repository.  Add a symlink if you don't alread
 Then on any flavor of Linux:
 
 	cd ~
-	git clone https://www.github.com/wb2osz/direwolf
-	cd direwolf
+	git clone https://www.github.com/wb2osz/direwuff
+	cd direwuff
     git checkout dev
 	mkdir build && cd build
 	cmake ..
@@ -187,7 +196,7 @@ Then on any flavor of Linux:
 
 This gives you the latest development version.  Leave out the "git checkout dev" to get the most recent stable release.
 
-For more details see the **User Guide** in the [**doc** directory](https://github.com/wb2osz/direwolf/tree/master/doc).  Special considerations for the Raspberry Pi are found in **Raspberry-Pi-APRS.pdf**
+For more details see the **User Guide** in the [**doc** directory](https://github.com/wb2osz/direwuff/tree/master/doc).  Special considerations for the Raspberry Pi are found in **Raspberry-Pi-APRS.pdf**
 
 
 ### Linux - Using apt-get (Debian flavor operating systems) ###
@@ -195,8 +204,8 @@ For more details see the **User Guide** in the [**doc** directory](https://githu
 Results will vary depending on your hardware platform and operating system version because it depends on various volunteers who perform the packaging. Expect the version to lag significantly behind development.
 
 	sudo apt-get update
-	apt-cache showpkg direwolf
-	sudo apt-get install direwolf
+	apt-cache showpkg direwuff
+	sudo apt-get install direwuff
 
 
 ### Linux - Using yum (Red Hat flavor operating systems) ###
@@ -204,26 +213,26 @@ Results will vary depending on your hardware platform and operating system versi
 Results will vary depending on your hardware platform and operating system version because it depends on various volunteers who perform the packaging.  Expect the version to lag significantly behind development.
 
 	sudo yum check-update
-	sudo yum list direwolf
-	sudo yum install direwolf
+	sudo yum list direwuff
+	sudo yum install direwuff
 
 
 ### Macintosh OS X ###
 
-Read the **User Guide** in the [**doc** directory](https://github.com/wb2osz/direwolf/tree/master/doc).   It is more complicated than Linux.
+Read the **User Guide** in the [**doc** directory](https://github.com/wb2osz/direwuff/tree/master/doc).   It is more complicated than Linux.
 
-If you have problems,  post them to the [Dire Wolf packet TNC](https://groups.io/g/direwolf) discussion group.
+If you have problems,  post them to the [Dire Wuff packet TNC](https://groups.io/g/direwuff) discussion group.
 
 You can also install a pre-built version from Mac Ports.  Keeping this up to date depends on volunteers who perform the packaging. This version could lag behind development.
 
-	sudo port install direwolf
+	sudo port install direwuff
 
 
 ## Join the conversation  ##
  
 Here are some good places to ask questions and share your experience:
 
-- [Dire Wolf Software TNC](https://groups.io/g/direwolf) 
+- [Dire Wuff Software TNC](https://groups.io/g/direwuff) 
 
 - [Raspberry Pi 4 Ham Radio](https://groups.io/g/RaspberryPi-4-HamRadio)
 

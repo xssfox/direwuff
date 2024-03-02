@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 // 
 //    Copyright (C) 2011, 2012, 2013, 2014, 2015, 2016, 2019, 2021  John Langner, WB2OSZ
 //
@@ -31,7 +31,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -503,17 +503,17 @@ int demod_init (struct audio_s *pa)
 
 	      // In version 1.6 we add a choice for the user.
 	      // If neither one was explicitly specified, print a message and take
-	      // a default.  My current thinking is that we default to direwolf <= 1.5
+	      // a default.  My current thinking is that we default to direwuff <= 1.5
 	      // compatible for version 1.6 and MFJ compatible after that.
 
 	      if (save_audio_config_p->achan[chan].v26_alternative == V26_UNSPECIFIED) {
 
 	        text_color_set(DW_COLOR_ERROR);
 	        dw_printf ("Two incompatible versions of 2400 bps QPSK are now available.\n");
-	        dw_printf ("For compatibility with direwolf <= 1.5, use 'V26A' modem option in config file.\n");
+	        dw_printf ("For compatibility with direwuff <= 1.5, use 'V26A' modem option in config file.\n");
 	        dw_printf ("For compatibility MFJ-2400 use 'V26B' modem option in config file.\n");
 	        dw_printf ("Command line options -j and -J can be used for channel 0.\n");
-	        dw_printf ("For more information, read the Dire Wolf User Guide and\n");
+	        dw_printf ("For more information, read the Dire Wuff User Guide and\n");
 	        dw_printf ("2400-4800-PSK-for-APRS-Packet-Radio.pdf.\n");
 	        dw_printf ("The default is now MFJ-2400 compatibility mode.\n");
 
@@ -544,7 +544,7 @@ int demod_init (struct audio_s *pa)
 	      if (save_audio_config_p->achan[chan].v26_alternative == V26_B)
 	        dw_printf (", compatible with MFJ-2400");
 	      else
-	        dw_printf (", compatible with earlier direwolf");
+	        dw_printf (", compatible with earlier direwuff");
 
 	      if (save_audio_config_p->achan[chan].dtmf_decode != DTMF_DECODE_OFF)
 	        dw_printf (", DTMF decoder enabled");

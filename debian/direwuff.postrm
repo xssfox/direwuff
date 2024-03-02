@@ -4,7 +4,7 @@ set -e
 
 case "$1" in
     purge)
-        rm -rf /var/lib/direwolf/
+        rm -rf /var/lib/direwuff/
     ;;
     remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
     ;;

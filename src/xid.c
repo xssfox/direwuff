@@ -1,6 +1,6 @@
 
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2014, 2016, 2017  John Langner, WB2OSZ
 //
@@ -44,7 +44,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -666,7 +666,7 @@ int main (int argc, char *argv[]) {
 	text_color_set (DW_COLOR_ERROR);
 
 #ifdef NDEBUG
-#error	"This won't work properly if NDEBUG is defined.  It should be undefined in direwolf.h"
+#error	"This won't work properly if NDEBUG is defined.  It should be undefined in direwuff.h"
 #endif
 	assert (n==1);
 	assert (param.full_duplex == 0);

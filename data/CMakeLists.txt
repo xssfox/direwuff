@@ -15,7 +15,7 @@
 # Rather than fixing an obsolete capability, it will just be removed.
 #
 # The destination field is often used to identify the manufacturer/model.
-# These are not hardcoded into Dire Wolf.  Instead they are read from
+# These are not hardcoded into Dire Wuff.  Instead they are read from
 # a file called tocalls.yaml at application start up time.
 #
 # The original permanent symbols are built in but the "new" symbols,

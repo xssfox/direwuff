@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# Part of Dire Wolf APRS Telemetry Toolkit, WB2OSZ, 2015
+# Part of Dire Wuff APRS Telemetry Toolkit, WB2OSZ, 2015
 
 # Derived from
 # https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code/blob/master/Adafruit_ADS1x15/ads1x15_ex_singleended.py

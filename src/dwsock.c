@@ -1,6 +1,6 @@
 
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2017  John Langner, WB2OSZ
 //
@@ -35,7 +35,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
+#include "direwuff.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
 
 #if __WIN32__
 
@@ -381,7 +381,7 @@ static void shuffle (struct addrinfo *host[], int nhosts)
  * Returns:	pStringBuf
  *
  * Description:	Can't use InetNtop because it is supported only on Windows Vista and later.
- * 		At one time Dire Wolf worked on Win XP.  Haven't tried it for years.
+ * 		At one time Dire Wuff worked on Win XP.  Haven't tried it for years.
  * 		Maybe some other dependency on a newer OS version has crept in.
  *
  * TODO:	Use this instead of own copy in aclients.c

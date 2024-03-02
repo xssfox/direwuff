@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2017,2019,2021  John Langner, WB2OSZ
 //
@@ -50,7 +50,7 @@
  *	All of the products, that I have seen, also use the same pin so this is the default.
  *	
  *	Soundmodem and hamlib paved the way but didn't get too far.
- *	Dire Wolf 1.3 added HAMLIB support (Linux only) which theoretically allows this in a
+ *	Dire Wuff 1.3 added HAMLIB support (Linux only) which theoretically allows this in a
  *	painful roundabout way.  This is documented in the User Guide, section called,
  *		 "Hamlib PTT Example 2: Use GPIO of USB audio adapter.  (e.g. DMK URI)"
  *
@@ -87,7 +87,7 @@
  *		Sound Card 4		HID 6
  *	
  *	That would be a real challenge if you had to figure that all out and configure manually.
- *	Dire Wolf version 1.5 makes this much more flexible and easier to use by supporting multiple
+ *	Dire Wuff version 1.5 makes this much more flexible and easier to use by supporting multiple
  *	sound devices and automatically determining the corresponding HID for the PTT signal. 
  *
  *	In version 1.7, we add a half-backed solution for Windows.  It's fine for situations
@@ -102,7 +102,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #ifndef USE_CM108
 
@@ -708,7 +708,7 @@ int cm108_inventory (struct thing_s *things, int max_things)
 
 /*
  * Seeing the form /dev/snd/pcmC4D0p will be confusing to many because we
- * would generally something like plughw:4,0 for in the direwolf configuration file.
+ * would generally something like plughw:4,0 for in the direwuff configuration file.
  * Construct the more familiar form.
  * Previously we only used the numeric form.  In version 1.6, the name is listed as well
  * and we describe how to assign names based on the physical USB socket for repeatability.
@@ -981,7 +981,7 @@ static int cm108_write (char *name, int iomask, int iodata)
  * when the device is removed and reinserted.
  *
  * According to various articles on the Internet, we should be able to
- * add a file to /etc/udev/rules.d.  "99-direwolf-cmedia.rules" would be a
+ * add a file to /etc/udev/rules.d.  "99-direwuff-cmedia.rules" would be a
  * suitable name.  The leading number is the order.  We want this to be
  * near the end.  I think the file extension must be ".rules."
  *

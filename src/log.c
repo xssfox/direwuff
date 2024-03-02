@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2014, 2015  John Langner, WB2OSZ
 //
@@ -38,7 +38,7 @@
  *
  *------------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 #include <time.h>
@@ -224,7 +224,7 @@ void log_write (int chan, decode_aprs_t *A, packet_t pp, alevel_t alevel, retry_
 
 	now = time(NULL);			// Get current time.
 	(void)gmtime_r (&now, &tm);	
-// FIXME:  https://github.com/wb2osz/direwolf/issues/473
+// FIXME:  https://github.com/wb2osz/direwuff/issues/473
 
 	if (g_daily_names) {
 
@@ -354,7 +354,7 @@ void log_write (int chan, decode_aprs_t *A, packet_t pp, alevel_t alevel, retry_
 	  strftime (itime, sizeof(itime), "%Y-%m-%dT%H:%M:%SZ", &tm);
 
           /* Who are we hearing?   Original station or digipeater? */
-	  /* Similar code in direwolf.c.  Combine into one function? */
+	  /* Similar code in direwuff.c.  Combine into one function? */
 
 	  strlcpy(heard, "", sizeof(heard));
 	  if (pp != NULL) {
@@ -460,7 +460,7 @@ void log_rr_bits (decode_aprs_t *A, packet_t pp)
 	  }
 
           /* Who are we hearing?   Original station or digipeater? */
-	  /* Similar code in direwolf.c.  Combine into one function? */
+	  /* Similar code in direwuff.c.  Combine into one function? */
 
 	  strlcpy(heard, "", sizeof(heard));
 

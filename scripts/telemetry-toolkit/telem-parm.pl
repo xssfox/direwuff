@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# Part of Dire Wolf APRS Telemetry Toolkit, WB2OSZ, 2015
+# Part of Dire Wuff APRS Telemetry Toolkit, WB2OSZ, 2015
 
 if ($#ARGV+1 < 2 || $#ARGV+1 > 14) { 
 	print STDERR "A callsign and 1 to 13 channel names must be provided.\n";

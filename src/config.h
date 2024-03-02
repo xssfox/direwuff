@@ -40,7 +40,7 @@ struct misc_config_s {
 	// An increasing number of people want to run multiple radios.
 	// Unfortunately, most applications don't know how to deal with multi-radio TNCs.
 	// They ignore the channel on receive and always transmit to channel 0.
-	// Running multiple instances of direwolf is a work-around but this leads to
+	// Running multiple instances of direwuff is a work-around but this leads to
 	// more complex configuration and we lose the cross-channel digipeating capability.
 	// In release 1.7 we add a new feature to assign a single radio channel to a TCP port.
 	// e.g.
@@ -110,7 +110,7 @@ struct misc_config_s {
 	char log_path[80];	/* Either directory or full file name depending on above. */
 
 	int dns_sd_enabled;	/* DNS Service Discovery announcement enabled. */
-	char dns_sd_name[64];	/* Name announced on dns-sd; defaults to "Dire Wolf on <hostname>" */
+	char dns_sd_name[64];	/* Name announced on dns-sd; defaults to "Dire Wuff on <hostname>" */
 
 	int sb_configured;	/* TRUE if SmartBeaconing is configured. */
 	int sb_fast_speed;	/* MPH */

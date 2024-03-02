@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2021  John Langner, WB2OSZ
 //
@@ -17,7 +17,7 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -133,7 +133,7 @@ static void send_bytes (int chan, unsigned char *b, int count, int polarity)
 
 // NRZI would be applied for AX.25 but IL2P does not use it.
 // However we do have an option to invert the signal.
-// The direwolf receive implementation will automatically compensate
+// The direwuff receive implementation will automatically compensate
 // for either polarity but other implementations might not.
 
 static void send_bit (int chan, int b, int polarity)

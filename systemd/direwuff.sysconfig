@@ -1,0 +1,2 @@
+# Set direwuff command line arguments here
+DIREWUFF_ARGS="-l /var/log/direwuff -c /etc/direwuff.conf"

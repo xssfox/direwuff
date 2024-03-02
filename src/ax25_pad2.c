@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2016  John Langner, WB2OSZ
 //
@@ -138,7 +138,7 @@
 #define AX25_PAD_C		/* this will affect behavior of ax25_pad.h */
 
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <string.h>

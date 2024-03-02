@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2013, 2014, 2015, 2016, 2017  John Langner, WB2OSZ
 //
@@ -30,7 +30,7 @@
 
 //#define DEBUG 1
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 
 #include <stdio.h>
@@ -616,8 +616,8 @@ static void * beacon_thread (void *arg)
 
 	        bp->next += bp->every;
 
-	        // https://github.com/wb2osz/direwolf/pull/301
-	        // https://github.com/wb2osz/direwolf/pull/301
+	        // https://github.com/wb2osz/direwuff/pull/301
+	        // https://github.com/wb2osz/direwuff/pull/301
 	        // This happens with a portable system with no Internet connection.
 	        // On reboot, the time is in the past.
 	        // After time gets set from GPS, all beacons from that interval are sent.

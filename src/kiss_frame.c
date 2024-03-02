@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2013, 2014, 2017, 2023  John Langner, WB2OSZ
 //
@@ -79,7 +79,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -593,7 +593,7 @@ void kiss_process_msg (unsigned char *kiss_msg, int kiss_len, int debug, struct 
 //
 //	Setting the CRC mode explicitly before sending any packets stops this state machine from running.
 //
-//	Is this a bug? I don't know - that's up to you! Maybe it would make sense for Direwolf to set
+//	Is this a bug? I don't know - that's up to you! Maybe it would make sense for Direwuff to set
 //	the CRC mode itself, or to expect this behaviour and ignore these flags on the first packets
 //	received from the Linux pty.
 //
@@ -606,7 +606,7 @@ void kiss_process_msg (unsigned char *kiss_msg, int kiss_len, int debug, struct 
 // (Some times the term 'port' is used but I try to use 'channel' all the time because 'port'
 // has too many other meanings. Serial port, TCP port, ...)
 // SMACK imposes a limit of 8.  That limit might have been OK back in 1991 but not now.
-// There are people using more than 8 radio channels (using SDR not traditional radios) with direwolf.
+// There are people using more than 8 radio channels (using SDR not traditional radios) with direwuff.
 
 
 	    /* Verify that the radio channel number is valid. */
@@ -760,7 +760,7 @@ void kiss_process_msg (unsigned char *kiss_msg, int kiss_len, int debug, struct 
 
           text_color_set(DW_COLOR_INFO);
 	  dw_printf ("Troubleshooting tip:\n");
-	  dw_printf ("Use \"-d kn\" option on direwolf command line to observe\n");
+	  dw_printf ("Use \"-d kn\" option on direwuff command line to observe\n");
 	  dw_printf ("all communication with the client application.\n");
 
 	  if (cmd == XKISS_CMD_DATA || cmd == XKISS_CMD_POLL) {
@@ -859,7 +859,7 @@ void kiss_process_msg (unsigned char *kiss_msg, int kiss_len, int debug, struct 
  *			Query		Response		Comment
  *			-----		--------		-------
  *
- *			TNC:		TNC:DIREWOLF 9.9	9.9 represents current version.
+ *			TNC:		TNC:DIREWUFF 9.9	9.9 represents current version.
  *
  *			TXBUF:		TXBUF:999		Number of bytes (not frames) in transmit queue.
  *
@@ -885,7 +885,7 @@ static void kiss_set_hardware (int chan, char *command, int debug, struct kisspo
 	      dw_printf ("KISS Set Hardware TNC: Did not expect a parameter.\n");
 	    }
 
-	    snprintf (response, sizeof(response), "DIREWOLF %d.%d", MAJOR_VERSION, MINOR_VERSION);
+	    snprintf (response, sizeof(response), "DIREWUFF %d.%d", MAJOR_VERSION, MINOR_VERSION);
 	    (*sendfun) (chan, KISS_CMD_SET_HARDWARE, (unsigned char *)response, strlen(response), kps, client);
 	  }
 

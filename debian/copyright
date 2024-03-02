@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: direwolf
+Upstream-Name: direwuff
 Files-Excluded: doc/*.pdf
-Source: https://github.com/wb2osz/direwolf
+Source: https://github.com/wb2osz/direwuff
 Comment:
  The files in misc/ are copied directly from the Cygwin source code. These are
  listed here as dual licensed as they are both part of the Cygwin distribution

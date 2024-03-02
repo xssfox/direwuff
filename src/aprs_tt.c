@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2013, 2014, 2015  John Langner, WB2OSZ
 //
@@ -39,7 +39,7 @@
 
 #define APRS_TT_C 1
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 
 // TODO:  clean up terminolgy.  
@@ -317,7 +317,7 @@ static char m_callsign[20];	/* really object name */
 /*
  * Standard APRStt has symbol code 'A' (box) with overlay of 0-9, A-Z. 
  *
- * Dire Wolf extension allows:
+ * Dire Wuff extension allows:
  *	Symbol table '/' (primary), any symbol code.
  *	Symbol table '\' (alternate), any symbol code.
  *	Alternate table symbol code, overlay of 0-9, A-Z.

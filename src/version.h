@@ -1,5 +1,5 @@
 
-/* Dire Wolf version 1.6 */
+/* Dire Wuff version 1.6 */
 
 // Put in destination field to identify the equipment used.
 
@@ -15,7 +15,7 @@
 // For user-defined data format.
 // APRS protocol spec Chapter 18 and http://www.aprs.org/aprs11/expfmts.txt
 
-#define USER_DEF_USER_ID 'D'		// user id D for direwolf
+#define USER_DEF_USER_ID 'D'		// user id D for direwuff
 
 #define USER_DEF_TYPE_AIS 'A'		// data type A for AIS NMEA sentence
 #define USER_DEF_TYPE_EAS 'E'		// data type E for EAS broadcasts

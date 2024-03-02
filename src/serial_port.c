@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2014, 2015, 2017  John Langner, WB2OSZ
 //
@@ -28,7 +28,7 @@
  *		
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"		// should be first
+#include "direwuff.h"		// should be first
 
 #include <stdio.h>
 
@@ -241,7 +241,7 @@ MYFDTYPE serial_port_open (char *devicename, int baud)
 // Leaving traces behind, as clue, in case failure is encountered in some older version.
 //#ifndef __APPLE__
 	  // Not defined for Mac OSX.
-	  // https://groups.yahoo.com/neo/groups/direwolf_packet/conversations/messages/2072
+	  // https://groups.yahoo.com/neo/groups/direwuff_packet/conversations/messages/2072
 	  case 57600:	cfsetispeed (&ts, B57600);	cfsetospeed (&ts, B57600); 	break;
 	  case 115200:	cfsetispeed (&ts, B115200);	cfsetospeed (&ts, B115200); 	break;
 //#endif

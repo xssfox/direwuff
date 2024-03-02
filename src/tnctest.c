@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2016  John Langner, WB2OSZ
 //
@@ -29,7 +29,7 @@
  *
  * Usage:	tnctest  [options]  port0=name0  port1=name1 
  *
- * Example:	tnctest  localhost:8000=direwolf  COM1=KPC-3+
+ * Example:	tnctest  localhost:8000=direwuff  COM1=KPC-3+
  *
  *		Each port can have the following forms:
  *
@@ -47,7 +47,7 @@
  * Linux:		Use the BSD socket interface.
  */
 
-#include "direwolf.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
+#include "direwuff.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
 
 #if __WIN32__
 
@@ -223,7 +223,7 @@ static volatile int busy[MAX_TNC];		/* True when TNC busy and can't accept more 
 
 static char tnc_address[MAX_TNC][12];		/* Name of the TNC used in the frames.  Originally, this */
 						/* was simply TNC0 and TNC1 but that can get hard to read */
-						/* and confusing.   Later used DW0, DW1, for direwolf */
+						/* and confusing.   Later used DW0, DW1, for direwuff */
 						/* so the direction of flow is easier to grasp. */
 
 #if __WIN32__

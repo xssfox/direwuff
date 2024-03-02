@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# Part of Dire Wolf APRS Telemetry Toolkit, WB2OSZ, 2015
+# Part of Dire Wuff APRS Telemetry Toolkit, WB2OSZ, 2015
 
 # For explanation of encoding see:
 # http://he.fi/doc/aprs-base91-comment-telemetry.txt

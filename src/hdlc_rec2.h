@@ -44,7 +44,7 @@ typedef struct retry_conf_s {
 
 
 
-#if defined(DIREWOLF_C) || defined(ATEST_C) || defined(UDPTEST_C)
+#if defined(DIREWUFF_C) || defined(ATEST_C) || defined(UDPTEST_C)
 
 static const char * retry_text[] = {
 		"NONE",

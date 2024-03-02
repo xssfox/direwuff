@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2021, 2023  John Langner, WB2OSZ
 //
@@ -34,7 +34,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -713,9 +713,9 @@ static void rtfm()
 {
 	text_color_set(DW_COLOR_ERROR);
 	dw_printf ("See online documentation:\n");
-	dw_printf ("    stable release:    https://github.com/wb2osz/direwolf/tree/master/doc\n");
-	dw_printf ("    development version:    https://github.com/wb2osz/direwolf/tree/dev/doc\n");
-	dw_printf ("    additional topics:    https://github.com/wb2osz/direwolf-doc\n");
+	dw_printf ("    stable release:    https://github.com/wb2osz/direwuff/tree/master/doc\n");
+	dw_printf ("    development version:    https://github.com/wb2osz/direwuff/tree/dev/doc\n");
+	dw_printf ("    additional topics:    https://github.com/wb2osz/direwuff-doc\n");
 }
 
 void config_init (char *fname, struct audio_s *p_audio_config, 
@@ -962,7 +962,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
         fp = fopen (filepath, "r");
 	
 #ifndef __WIN32__
-	if (fp == NULL && strcmp(fname, "direwolf.conf") == 0) {
+	if (fp == NULL && strcmp(fname, "direwuff.conf") == 0) {
 	/* Failed to open the default location.  Try home dir. */
 	  char *p;
 
@@ -972,7 +972,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 	  p = getenv("HOME");
 	  if (p != NULL) {
 	    strlcpy (filepath, p, sizeof(filepath));
-	    strlcat (filepath, "/direwolf.conf", sizeof(filepath));
+	    strlcat (filepath, "/direwuff.conf", sizeof(filepath));
 	    fp = fopen (filepath, "r");
 	  } 
 	}
@@ -1397,9 +1397,9 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 
 
 	    /* Set defaults based on speed. */
-	    /* Should be same as -B command line option in direwolf.c. */
+	    /* Should be same as -B command line option in direwuff.c. */
 
-	    /* We have similar logic in direwolf.c, config.c, gen_packets.c, and atest.c, */
+	    /* We have similar logic in direwuff.c, config.c, gen_packets.c, and atest.c, */
 	    /* that need to be kept in sync.  Maybe it could be a common function someday. */
 
 	    if (p_audio_config->achan[channel].baud < 600) {
@@ -1659,7 +1659,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
                   p_audio_config->achan[channel].space_freq = 0;
 		}
 
-		else if (strcasecmp(t, "V26A") == 0 || 		/* Compatible with direwolf versions <= 1.5.  New in 1.6. */
+		else if (strcasecmp(t, "V26A") == 0 || 		/* Compatible with direwuff versions <= 1.5.  New in 1.6. */
 			 strcasecmp(t, "V26B") == 0) {		/* Compatible with MFJ-2400.  New in 1.6. */
 
                   if (p_audio_config->achan[channel].modem_type != MODEM_QPSK ||
@@ -1738,7 +1738,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
               dw_printf ("Line %d: Using a FIX_BITS value greater than %d is not recommended for normal operation.\n",
 			line, DEFAULT_FIX_BITS);
               dw_printf ("FIX_BITS > 1 was an interesting experiment but turned out to be a bad idea.\n");
-              dw_printf ("Don't be surprised if it takes 100%% CPU, direwolf can't keep up with the audio stream,\n");
+              dw_printf ("Don't be surprised if it takes 100%% CPU, direwuff can't keep up with the audio stream,\n");
               dw_printf ("and you see messages like \"Audio input device 0 error code -32: Broken pipe\"\n");
 	    }
 
@@ -1834,11 +1834,11 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 
 	      if (*t == '-') {
 	        p_audio_config->achan[channel].octrl[ot].out_gpio_num = atoi(t+1);
-		p_audio_config->achan[channel].octrl[ot].ptt_invert = 1;
+			p_audio_config->achan[channel].octrl[ot].ptt_invert = 1;
 	      }
 	      else {
 	        p_audio_config->achan[channel].octrl[ot].out_gpio_num = atoi(t);
-		p_audio_config->achan[channel].octrl[ot].ptt_invert = 0;
+			p_audio_config->achan[channel].octrl[ot].ptt_invert = 0;
 	      }
 	      p_audio_config->achan[channel].octrl[ot].ptt_method = PTT_METHOD_GPIO;
 #endif
@@ -1970,12 +1970,12 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 #else
 #if __WIN32__
 	      text_color_set(DW_COLOR_ERROR);
-	      dw_printf ("Config file line %d: Windows version of direwolf does not support HAMLIB.\n", line);
+	      dw_printf ("Config file line %d: Windows version of direwuff does not support HAMLIB.\n", line);
 	      exit (EXIT_FAILURE);
 #else
 	      text_color_set(DW_COLOR_ERROR);
 	      dw_printf ("Config file line %d: %s with RIG is only available when hamlib support is enabled.\n", line, otname);
-	      dw_printf ("You must rebuild direwolf with hamlib support.\n");
+	      dw_printf ("You must rebuild direwuff with hamlib support.\n");
 	      dw_printf ("See User Guide for details.\n");
 #endif
 
@@ -2066,7 +2066,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 #else
 	      text_color_set(DW_COLOR_ERROR);
 	      dw_printf ("Config file line %d: %s with CM108 is only available when USB Audio GPIO support is enabled.\n", line, otname);
-	      dw_printf ("You must rebuild direwolf with CM108 Audio Adapter GPIO PTT support.\n");
+	      dw_printf ("You must rebuild direwuff with CM108 Audio Adapter GPIO PTT support.\n");
 	      dw_printf ("See Interface Guide for details.\n");
 	      rtfm();
 	      exit (EXIT_FAILURE);
@@ -2152,8 +2152,45 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 
 	      }  /* end of second serial port control line. */
 	    }  /* end of serial port case. */
-
 	  }  /* end of PTT, DCD, CON */
+
+	  // handle pre,post,start commands
+
+		  
+
+     else if (strcasecmp(t, "PTT_PRE_CMD") == 0){
+        t = split(NULL,1);
+        if (t == NULL) {
+          text_color_set(DW_COLOR_ERROR);
+          dw_printf ("Config file: Missing command for PTT_*_CMD on line %d.\n", line);
+          rtfm();
+          exit(EXIT_FAILURE);
+        }
+         
+        p_audio_config->achan[channel].pre_ptt_cmd = strdup(t);
+      }
+      else if (strcasecmp(t, "PTT_POST_CMD") == 0){
+        t = split(NULL,1);
+        if (t == NULL) {
+          text_color_set(DW_COLOR_ERROR);
+          dw_printf ("Config file: Missing command for PTT_*_CMD on line %d.\n", line);
+          rtfm();
+          exit(EXIT_FAILURE);
+        }
+        p_audio_config->achan[channel].post_ptt_cmd = strdup(t);
+      }
+      else if (strcasecmp(t, "PTT_START_CMD") == 0){
+        t = split(NULL,1);
+        if (t == NULL) {
+          text_color_set(DW_COLOR_ERROR);
+          dw_printf ("Config file: Missing command for PTT_*_CMD on line %d.\n", line);
+          rtfm();
+          exit(EXIT_FAILURE);
+        }
+        p_audio_config->achan[channel].start_ptt_cmd = strdup(t);
+      }
+    
+
 
 /*
  * INPUTS
@@ -2253,7 +2290,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 	      text_color_set(DW_COLOR_ERROR);
               dw_printf ("Line %d: Invalid delay time for persist algorithm. Using default %d.\n",
 			line, p_audio_config->achan[channel].slottime);
-              dw_printf ("Read the Dire Wolf User Guide, \"Radio Channel - Transmit Timing\"\n");
+              dw_printf ("Read the Dire Wuff User Guide, \"Radio Channel - Transmit Timing\"\n");
               dw_printf ("section, to understand what this means.\n");
               dw_printf ("Why don't you just use the default?\n");
    	    }
@@ -2280,7 +2317,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 	      text_color_set(DW_COLOR_ERROR);
               dw_printf ("Line %d: Invalid probability for persist algorithm. Using default %d.\n",
 			line, p_audio_config->achan[channel].persist);
-              dw_printf ("Read the Dire Wolf User Guide, \"Radio Channel - Transmit Timing\"\n");
+              dw_printf ("Read the Dire Wuff User Guide, \"Radio Channel - Transmit Timing\"\n");
               dw_printf ("section, to understand what this means.\n");
               dw_printf ("Why don't you just use the default?\n");
    	    }
@@ -2304,7 +2341,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 	      if (n < 10) {
                 dw_printf ("Line %d: Setting TXDELAY this small is a REALLY BAD idea if you want other stations to hear you.\n", 
 			line);
-                dw_printf ("Read the Dire Wolf User Guide, \"Radio Channel - Transmit Timing\"\n");
+                dw_printf ("Read the Dire Wuff User Guide, \"Radio Channel - Transmit Timing\"\n");
                 dw_printf ("section, to understand what this means.\n");
                 dw_printf ("Why don't you just use the default rather than reducing reliability?\n");
 	      }
@@ -2313,7 +2350,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 			line);
                 dw_printf ("Line %d: The value %d would be %.3f seconds which seems rather excessive.  Are you sure you want that?\n", 
 			line, n, (double)n * 10. / 1000.);
-                dw_printf ("Read the Dire Wolf User Guide, \"Radio Channel - Transmit Timing\"\n");
+                dw_printf ("Read the Dire Wuff User Guide, \"Radio Channel - Transmit Timing\"\n");
                 dw_printf ("section, to understand what this means.\n");
                 dw_printf ("Why don't you just use the default?\n");
 	      }
@@ -2344,7 +2381,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 	      if (n < 5) {
                 dw_printf ("Line %d: Setting TXTAIL that small is a REALLY BAD idea if you want other stations to hear you.\n", 
 			line);
-                dw_printf ("Read the Dire Wolf User Guide, \"Radio Channel - Transmit Timing\"\n");
+                dw_printf ("Read the Dire Wuff User Guide, \"Radio Channel - Transmit Timing\"\n");
                 dw_printf ("section, to understand what this means.\n");
                 dw_printf ("Why don't you just use the default rather than reducing reliability?\n");
 	      }
@@ -2353,7 +2390,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 			line);
                 dw_printf ("Line %d: The value %d would be %.3f seconds which seems rather excessive.  Are you sure you want that?\n", 
 			line, n, (double)n * 10. / 1000.);
-                dw_printf ("Read the Dire Wolf User Guide, \"Radio Channel - Transmit Timing\"\n");
+                dw_printf ("Read the Dire Wuff User Guide, \"Radio Channel - Transmit Timing\"\n");
                 dw_printf ("section, to understand what this means.\n");
                 dw_printf ("Why don't you just use the default?\n");
 	      }
@@ -4760,7 +4797,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 	// An increasing number of people want to run multiple radios.
 	// Unfortunately, most applications don't know how to deal with multi-radio TNCs.
 	// They ignore the channel on receive and always transmit to channel 0.
-	// Running multiple instances of direwolf is a work-around but this leads to
+	// Running multiple instances of direwuff is a work-around but this leads to
 	// more complex configuration and we lose the cross-channel digipeating capability.
 	// In release 1.7 we add a new feature to assign a single radio channel to a TCP port.
 	// e.g.
@@ -4907,7 +4944,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 
 /*
  * DNSSD 		- Enable or disable (1/0) dns-sd, DNS Service Discovery announcements
- * DNSSDNAME            - Set DNS-SD service name, defaults to "Dire Wolf on <hostname>"
+ * DNSSDNAME            - Set DNS-SD service name, defaults to "Dire Wuff on <hostname>"
  */
 
 	  else if (strcasecmp(t, "DNSSD") == 0) {
@@ -5004,7 +5041,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 #else
 	    text_color_set(DW_COLOR_ERROR);
 	    dw_printf ("Config file, line %d: The GPSD interface has not been enabled.\n", line);
-	    dw_printf ("Install gpsd and libgps-dev packages then rebuild direwolf.\n");
+	    dw_printf ("Install gpsd and libgps-dev packages then rebuild direwuff.\n");
 	    continue;
 #endif
 

@@ -1,5 +1,5 @@
-if(NOT EXISTS $ENV{HOME}/direwolf.conf)
-  configure_file("${CUSTOM_BINARY_DIR}/direwolf.conf" $ENV{HOME})
+if(NOT EXISTS $ENV{HOME}/direwuff.conf)
+  configure_file("${CUSTOM_BINARY_DIR}/direwuff.conf" $ENV{HOME})
 endif()
 
 if(NOT EXISTS $ENV{HOME}/sdr.conf)

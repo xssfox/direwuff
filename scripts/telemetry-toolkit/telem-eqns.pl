@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# Part of Dire Wolf APRS Telemetry Toolkit, WB2OSZ, 2015
+# Part of Dire Wuff APRS Telemetry Toolkit, WB2OSZ, 2015
 
 if ($#ARGV+1 != 4 && $#ARGV+1 != 7 && $#ARGV+1 != 10 && $#ARGV+1 != 13 && $#ARGV+1 != 16) { 
 	print STDERR "A callsign and 1 to 5 sets of 3 coefficients must be provided.\n";

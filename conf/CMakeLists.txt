@@ -22,20 +22,20 @@ string(REGEX REPLACE "\n%R%[^\n]*" "" file_content "${file_content}")
 string(REGEX REPLACE "\n%C%([^\n]*)" "\n\\1" file_content "${file_content}")
 string(REGEX REPLACE "^%C%([^\n]*)" "\\1" file_content "${file_content}")
 
-file(WRITE "${CMAKE_BINARY_DIR}/direwolf.conf" "${file_content}")
+file(WRITE "${CMAKE_BINARY_DIR}/direwuff.conf" "${file_content}")
 
 # install udev rules for CM108
 if(LINUX)
-  install(FILES "${CUSTOM_CONF_DIR}/99-direwolf-cmedia.rules" DESTINATION /etc/udev/rules.d/)
+  install(FILES "${CUSTOM_CONF_DIR}/99-direwuff-cmedia.rules" DESTINATION /etc/udev/rules.d/)
 endif()
 
-install(FILES "${CMAKE_BINARY_DIR}/direwolf.conf" DESTINATION ${INSTALL_CONF_DIR})
+install(FILES "${CMAKE_BINARY_DIR}/direwuff.conf" DESTINATION ${INSTALL_CONF_DIR})
 install(FILES "${CUSTOM_CONF_DIR}/sdr.conf" DESTINATION ${INSTALL_CONF_DIR})
 
 # Put sample configuration & startup files in home directory.
 # This step would be done as ordinary user.
-# Some people like to put the direwolf config file in /etc/ax25.
-# Note that all of these are also in $(DESTDIR)/share/doc/direwolf/examples/.
+# Some people like to put the direwuff config file in /etc/ax25.
+# Note that all of these are also in $(DESTDIR)/share/doc/direwuff/examples/.
 if(NOT (WIN32 OR CYGWIN))
   add_custom_target(install-conf
     COMMAND ${CMAKE_COMMAND}

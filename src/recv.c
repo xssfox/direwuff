@@ -1,6 +1,6 @@
 
 // 
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2014, 2015, 2016  John Langner, WB2OSZ
 //
@@ -32,7 +32,7 @@
  *		and the main program looped around processing the 
  *		audio samples.  The structure looked like this:
  *
- *		main in direwolf.c:
+ *		main in direwuff.c:
  *
  *			audio_init()
  *			various other *_init()
@@ -43,7 +43,7 @@
  *				
  *
  *		When a packet is successfully decoded, somebody calls
- *		app_process_rec_frame, also in direwolf.c
+ *		app_process_rec_frame, also in direwuff.c
  *
  *
  *		Starting in version 1.2, we support multiple audio 
@@ -53,7 +53,7 @@
  *
  *		The new flow looks like this:
  *
- *		main in direwolf.c:
+ *		main in direwuff.c:
  *
  *			audio_init()
  *			various other *_init()
@@ -82,7 +82,7 @@
 
 //#define DEBUG 1
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 #include <unistd.h>

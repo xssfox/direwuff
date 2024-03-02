@@ -1,5 +1,5 @@
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 
@@ -127,7 +127,7 @@ double dtime_monotonic (void)
 // This is still returning wall clock time.
 // https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-gettickcount64
 // GetTickCount64 would be ideal but it requires Vista or Server 2008.
-// As far as I know, the current version of direwolf still works on XP.
+// As far as I know, the current version of direwuff still works on XP.
 // 
 // As a work-around, GetTickCount could be used if we add extra code to deal
 // with the wrap around after about 49.7 days.
@@ -160,7 +160,7 @@ double dtime_monotonic (void)
 // This is the only case handled properly.
 // Probably the only one that matters.
 // It is common to have a Raspberry Pi, without Internet,
-// starting up direwolf before GPS/NTP adjusts the time.
+// starting up direwuff before GPS/NTP adjusts the time.
 
 	clock_gettime (CLOCK_MONOTONIC, &ts);
 #endif
@@ -277,7 +277,7 @@ void timestamp_user_format (char *result, int result_size, char *user_format)
  *		What if someone wants UTC, rather than local time?
  *		You can simply set an environment variable like this:
  *
- *			TZ=UTC direwolf
+ *			TZ=UTC direwuff
  *
  *		so it's probably not worth the effort to add another
  *		option.

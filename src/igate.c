@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2013, 2014, 2015, 2016, 2023  John Langner, WB2OSZ
 //
@@ -68,7 +68,7 @@
  * Cygwin:		Can use either one.
  */
 
-#include "direwolf.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
+#include "direwuff.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
 
 #if __WIN32__
 
@@ -94,7 +94,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "direwolf.h"
+#include "direwuff.h"
 #include "ax25_pad.h"
 #include "textcolor.h"
 #include "version.h"
@@ -1147,7 +1147,7 @@ static void send_packet_to_server (packet_t pp, int chan)
 
 
 // It was reported that APRS packets, containing a nul byte in the information part,
-// are being truncated.  https://github.com/wb2osz/direwolf/issues/84
+// are being truncated.  https://github.com/wb2osz/direwuff/issues/84
 //
 // One might argue that the packets are invalid and the proper behavior would be
 // to simply discard them, the same way we do if the CRC is bad.  One might argue
@@ -2096,7 +2096,7 @@ static void maybe_xmit_packet_from_igate (char *message, int to_chan)
  *
  * Version 1.5:	Rethink strategy.
  *
- *		Issue 85, https://github.com/wb2osz/direwolf/issues/85 ,
+ *		Issue 85, https://github.com/wb2osz/direwuff/issues/85 ,
  *		got me thinking about this some more.  Sending more information will
  *		allow the APRS-IS servers to perform future additional network analysis.
  *		To make a long story short, the RF>IS direction duplicate checking
@@ -2354,7 +2354,8 @@ Send it now and remember that fact.
 Digipeat it.  Notice how it has a trailing CR.
 TODO:  Why is the CRC different?  Content looks the same.
 
-	ig_to_tx_remember [38] = ch0 d1 1447683040 27598 "N1ZKO-7>T2TS7X:`c6wl!i[/>"4]}[scanning]="
+	ig_to_tx_remember [38] = ch0 d1 1447683040 27598 "N1ZKO-7>T2TS7X:`c6wl!i[/>"4]}[scanning]=
+"
 	[0H] N1ZKO-7>T2TS7X,WB2OSZ-14*,WIDE2-1:`c6wl!i[/>"4]}[scanning]=<0x0d>
 
 Now we hear it again, thru a digipeater.

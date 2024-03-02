@@ -13,7 +13,7 @@
 
 ### New Documentation: ###
 
-Additional documentation location to slow down growth of main repository.  [https://github.com/wb2osz/direwolf-doc](https://github.com/wb2osz/direwolf-doc) .   These are more oriented toward achieving a goal and understanding, as opposed to the User Guide which describes the functionality.
+Additional documentation location to slow down growth of main repository.  [https://github.com/wb2osz/direwuff-doc](https://github.com/wb2osz/direwuff-doc) .   These are more oriented toward achieving a goal and understanding, as opposed to the User Guide which describes the functionality.
 
 - ***APRS Digipeaters***
 
@@ -42,7 +42,7 @@ Additional documentation location to slow down growth of main repository.  [http
 
 - Limited support for CM108/CM119 GPIO PTT on Windows.
 
-- Dire Wolf now advertises itself using DNS Service Discovery.  This allows suitable APRS / Packet Radio applications to find a network KISS TNC without knowing the IP address or TCP port.    Thanks to Hessu for providing this.  Currently available only for Linux and Mac OSX.  [Read all about it here.](https://github.com/hessu/aprs-specs/blob/master/TCP-KISS-DNS-SD.md)
+- Dire Wuff now advertises itself using DNS Service Discovery.  This allows suitable APRS / Packet Radio applications to find a network KISS TNC without knowing the IP address or TCP port.    Thanks to Hessu for providing this.  Currently available only for Linux and Mac OSX.  [Read all about it here.](https://github.com/hessu/aprs-specs/blob/master/TCP-KISS-DNS-SD.md)
 
 - The transmit calibration tone (-x) command line option now accepts a radio channel number and/or a single letter mode:  a = alternate tones, m = mark tone, s = space tone, p = PTT only no sound.
 
@@ -120,7 +120,7 @@ Use the 64 bit version if possible; it runs considerably faster.
 
 - [***EAS SAME to APRS Message Converter***](https://github.com/wb2osz/eas2aprs)
 
-- [***Dire Wolf PowerPoint Slide Show***](https://github.com/wb2osz/direwolf-presentation)
+- [***Dire Wuff PowerPoint Slide Show***](https://github.com/wb2osz/direwuff-presentation)
 
 ### Notes: ###
 
@@ -233,7 +233,7 @@ Windows binary distribution now uses gcc (MinGW) version 6.3.0.
 
 - Longer tocall.txt files can now be handled.  
 
-- Sometimes kissattach would have an issue with the Dire Wolf pseudo terminal.  This showed up most often on Raspbian but sometimes occurred with other versions of Linux.
+- Sometimes kissattach would have an issue with the Dire Wuff pseudo terminal.  This showed up most often on Raspbian but sometimes occurred with other versions of Linux.
 
 	*kissattach: Error setting line discipline: TIOCSETD: Device or resource busy
 	Are you sure you have enabled MKISS support in the kernel
@@ -245,7 +245,7 @@ frame processing thread to hang.   The first thing you will notice is that
 received frames are not being printed.  After a while this message will appear:
 
   	*Received frame queue is out of control. Length=... Reader thread is probably 
-  	frozen.  This can be caused by using a pseudo terminal (direwolf -p) where 
+  	frozen.  This can be caused by using a pseudo terminal (direwuff -p) where 
   	another application is not reading the frames from the other side.*
 
 - -p command line option caused segmentation fault with glibc >= 2.24.
@@ -373,7 +373,7 @@ frame processing thread to hang.   The first thing you will notice is that
 received frames are not being printed.  After a while this message will appear:
 
   Received frame queue is out of control. Length=... Reader thread is probably 
-  frozen.  This can be caused by using a pseudo terminal (direwolf -p) where 
+  frozen.  This can be caused by using a pseudo terminal (direwuff -p) where 
   another application is not reading the frames from the other side.
 
 -----------
@@ -434,7 +434,7 @@ be better now.
 
 ### Known problems ###
 
-- Sometimes kissattach fails to connect with "direwolf -p".
+- Sometimes kissattach fails to connect with "direwuff -p".
 The User Guide and Raspberry Pi APRS document have a couple work-arounds.
 
 -----------

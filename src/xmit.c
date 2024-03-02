@@ -1,6 +1,6 @@
 
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2013, 2014, 2015, 2016, 2017  John Langner, WB2OSZ
 //
@@ -51,7 +51,7 @@
  *
  *---------------------------------------------------------------*/
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -61,8 +61,9 @@
 #include <math.h>
 #include <errno.h>
 #include <stddef.h>
+#include <signal.h>
 
-#include "direwolf.h"
+#include "direwuff.h"
 #include "ax25_pad.h"
 #include "textcolor.h"
 #include "audio.h"
@@ -552,8 +553,35 @@ static void * xmit_thread (void *arg)
 
 	    if (pp != NULL) {
 
+		  if (save_audio_config_p->achan[chan].pre_ptt_cmd){
+			int pre_ret = system(save_audio_config_p->achan[chan].pre_ptt_cmd);
+			if (pre_ret != 0) {
+				ok = 0;
+				text_color_set(DW_COLOR_ERROR);
+				dw_printf ("Error running pre ptt script %s ret value: %d.\n", save_audio_config_p->achan[chan].pre_ptt_cmd, pre_ret);
+				dw_mutex_unlock (&(audio_out_dev_mutex[ACHAN2ADEV(chan)]));
+				continue;
+			}
+		  }
+
+		  int start_ptt_cmd_pid = 0;
 
 	      if (ok) {
+			
+			if (save_audio_config_p->achan[chan].start_ptt_cmd){
+				start_ptt_cmd_pid = fork();
+				if ( start_ptt_cmd_pid == 0 ) {
+					char *cmd = "/bin/sh";
+					char *argv[4];
+					argv[0] = "/bin/sh";
+					argv[1] = "-c";
+					argv[2] = save_audio_config_p->achan[chan].start_ptt_cmd;
+					argv[3] = NULL;
+					execvp(cmd, argv);
+				}
+
+			}
+
 /*
  * Channel is clear and we have lock on output device. 
  *
@@ -610,6 +638,25 @@ static void * xmit_thread (void *arg)
 	            xmit_ax25_frames (chan, prio, pp, 256);
 	            break;
 	        }
+
+			if (start_ptt_cmd_pid) {
+				kill(start_ptt_cmd_pid, SIGTERM);
+				int pid_status;
+				wait(&pid_status);
+				fflush(stdout);
+				fflush(stderr);
+			}
+
+			if (save_audio_config_p->achan[chan].post_ptt_cmd){
+				int post_ret = system(save_audio_config_p->achan[chan].post_ptt_cmd);
+				if (post_ret != 0) {
+					text_color_set(DW_COLOR_ERROR);
+					dw_printf ("Error running post ptt script %s ret value: %d.\n", save_audio_config_p->achan[chan].post_ptt_cmd, post_ret);
+					fflush(stdout);
+					fflush(stderr);
+				}
+		  	}
+
 
 	        // Corresponding lock is in wait_for_clear_channel.
 
@@ -1015,7 +1062,7 @@ static int send_one_frame (int c, int p, packet_t pp)
 #endif
 	dw_printf ("%s", stemp);			/* stations followed by : */
 
-/* Demystify non-APRS.  Use same format for received frames in direwolf.c. */
+/* Demystify non-APRS.  Use same format for received frames in direwuff.c. */
 
 	if ( ! ax25_is_aprs(pp)) {
 	  ax25_frame_type_t ftype;

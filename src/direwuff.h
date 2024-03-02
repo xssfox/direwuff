@@ -1,5 +1,5 @@
 
-/* direwolf.h - Common stuff used many places. */
+/* direwuff.h - Common stuff used many places. */
 
 // TODO:   include this file first before anything else in each .c file.
 
@@ -9,8 +9,8 @@
 #endif
 
 
-#ifndef DIREWOLF_H
-#define DIREWOLF_H 1
+#ifndef DIREWUFF_H
+#define DIREWUFF_H 1
 
 /*
  * Support Windows XP and later.
@@ -23,10 +23,10 @@
 #if __WIN32__
 
 #ifdef _WIN32_WINNT
-#error	Include "direwolf.h" before any windows system files.
+#error	Include "direwuff.h" before any windows system files.
 #endif
 #ifdef WINVER
-#error	Include "direwolf.h" before any windows system files.
+#error	Include "direwuff.h" before any windows system files.
 #endif
 
 #define _WIN32_WINNT 0x0501     /* Minimum OS version is XP. */
@@ -134,14 +134,14 @@
 
 #ifdef __APPLE__
 
-// https://groups.yahoo.com/neo/groups/direwolf_packet/conversations/messages/2072
+// https://groups.yahoo.com/neo/groups/direwuff_packet/conversations/messages/2072
 
 // The original suggestion was to add this to only ptt.c.
 // I thought it would make sense to put it here, so it will apply to all files,
 // consistently, rather than only one file ptt.c.
 
 // The placement of this is critical.  Putting it earlier was a problem.
-// https://github.com/wb2osz/direwolf/issues/113
+// https://github.com/wb2osz/direwuff/issues/113
 
 // It needs to be after the include pthread.h because
 // pthread.h pulls in <sys/cdefs.h>, which redefines __DARWIN_C_LEVEL back to ansi,
@@ -151,7 +151,7 @@
 // #define __DARWIN_C_LEVEL  __DARWIN_C_FULL
 
 // There is a more involved patch here:
-//  https://groups.yahoo.com/neo/groups/direwolf_packet/conversations/messages/2458
+//  https://groups.yahoo.com/neo/groups/direwuff_packet/conversations/messages/2458
 
 #ifndef _DARWIN_C_SOURCE
 #define _DARWIN_C_SOURCE
@@ -352,4 +352,4 @@ size_t strlcat_debug(char *__restrict__ dst, const char *__restrict__ src, size_
 #endif
 
 
-#endif   /* ifndef DIREWOLF_H */
+#endif   /* ifndef DIREWUFF_H */

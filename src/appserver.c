@@ -4,12 +4,12 @@
 
 
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 
 
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -36,7 +36,7 @@
  *		a connection from another station and respond to commands.
  *		It can be used as a starting point for developing your own applications.
  *		
- * Description:	This attaches to an instance of Dire Wolf via the AGW network interface.
+ * Description:	This attaches to an instance of Dire Wuff via the AGW network interface.
  *		It processes commands from other radio stations and responds.
  *
  *---------------------------------------------------------------*/
@@ -122,7 +122,7 @@ static void poll_timing_test (void);
  *
  * Name: 	main
  *
- * Purpose:   	Attach to Dire Wolf TNC, wait for requests from users.
+ * Purpose:   	Attach to Dire Wuff TNC, wait for requests from users.
  *
  * Usage:	Described above.
  *

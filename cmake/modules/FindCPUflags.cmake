@@ -25,7 +25,7 @@ function(detect_architecture symbol arch)
     endif()
 endfunction()
 
-# direwolf versions thru 1.5 were available pre-built for 32 bit Windows targets.
+# direwuff versions thru 1.5 were available pre-built for 32 bit Windows targets.
 # Research and experimentation revealed that the SSE instructions made a big
 # difference in runtime speed but SSE2 and later were not significantly better
 # for this application.  I decided to build with only the SSE instructions making
@@ -34,7 +34,7 @@ endfunction()
 # These are ancient history - from the previous Century - but old computers, generally
 # considered useless for anything else, often end up in the ham shack.
 #
-# When cmake was first used for direwolf, the default target became 64 bit and the
+# When cmake was first used for direwuff, the default target became 64 bit and the
 # SSE2, SSE3, SSE4.1, and SSE4.2 instructions were automatically enabled based on the
 # build machine capabilities.  This was fine until I tried running the application
 # on a computer much older than where it was built.  It did not have the SSE4 instructions
@@ -44,11 +44,11 @@ endfunction()
 # These were all run on the same computer, but compiled in different ways.
 # Times to run atest with Track 1 of the TNC test CD:
 #
-#   direwolf 1.5 - 32 bit target - gcc 6.3.0
+#   direwuff 1.5 - 32 bit target - gcc 6.3.0
 #
 #	60.4 sec. Pentium 3 with SSE
 #
-#   direwolf 1.6 - 32 bit target - gcc 7.4.0
+#   direwuff 1.6 - 32 bit target - gcc 7.4.0
 #
 #	81.0 sec. with no SIMD instructions enabled.
 #	54.4 sec. with SSE
@@ -61,7 +61,7 @@ endfunction()
 #	That's what I found several years ago with a much older compiler.
 #	The original SSE helped a lot but SSE2 and later made little difference.
 #
-#   direwolf 1.6 - 64 bit target - gcc 7.4.0
+#   direwuff 1.6 - 64 bit target - gcc 7.4.0
 #
 #	34.8 sec. with no SIMD instructions enabled.
 #	34.8 sec. with SSE

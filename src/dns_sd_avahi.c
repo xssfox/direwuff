@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2020  Heikki Hannikainen, OH7LZB
 //
@@ -125,7 +125,7 @@ static void create_services(AvahiClient *c)
         text_color_set(DW_COLOR_INFO);
         dw_printf(PRINT_PREFIX "Announcing KISS TCP on port %d as '%s'\n", kiss_port, name);
 
-        /* Announce with AVAHI_PROTO_INET instead of AVAHI_PROTO_UNSPEC, since Dire Wolf currently
+        /* Announce with AVAHI_PROTO_INET instead of AVAHI_PROTO_UNSPEC, since Dire Wuff currently
          * only listens on IPv4.
          */
 

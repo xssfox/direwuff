@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //    Copyright (C) 2011-2014, 2015, 2017, 2021  John Langner, WB2OSZ
 //
 //    This program is free software: you can redistribute it and/or modify
@@ -90,30 +90,30 @@
 	Separate TCP ports per radio:
 
 An increasing number of people are using multiple radios.
-direwolf is capable of handling many radio channels and
+direwuff is capable of handling many radio channels and
 provides cross-band repeating, etc.
 Maybe a single stereo audio interface is used for 2 radios.
 
                    +------------+    tcp 8001, all channels
 Radio A  --------  |            |  -------------------------- Application A
-                   |  direwolf  |
+                   |  direwuff  |
 Radio B  --------  |            |  -------------------------- Application B
                    +------------+    tcp 8001, all channels
 
 The KISS protocol has a 4 bit field for the TNC port (which I prefer to
 call channel because port has too many different meanings).
-direwolf handles this fine.  However, most applications were written assuming
+direwuff handles this fine.  However, most applications were written assuming
 that a TNC could only talk to a single radio.  On reception, they ignore the
 channel in the KISS frame.  For transmit, the channel is always set to 0.
 
-Many people are using the work-around of two separate instances of direwolf.
+Many people are using the work-around of two separate instances of direwuff.
 
                    +------------+    tcp 8001, KISS ch 0
-Radio A  --------  |  direwolf  |  -------------------------- Application A
+Radio A  --------  |  direwuff  |  -------------------------- Application A
                    +------------+
 
                    +------------+    tcp 8002, KISS ch 0
-Radio B  --------  |  direwolf  |  -------------------------- Application B
+Radio B  --------  |  direwuff  |  -------------------------- Application B
                    +------------+
 
 
@@ -122,14 +122,14 @@ single port TNCs.  But they don't know how to multiplex multiple channels
 thru a single KISS stream.
 
                    +------------+    tcp 8001, KISS ch 0
-Radio A  --------  |  direwolf  |  ------------------------
+Radio A  --------  |  direwuff  |  ------------------------
                    +------------+                          \
                                                             -- Application
                    +------------+    tcp 8002, KISS ch 0   /
-Radio B  --------  |  direwolf  |  ------------------------
+Radio B  --------  |  direwuff  |  ------------------------
                    +------------+
 
-Using two different instances of direwolf means more complex configuration
+Using two different instances of direwuff means more complex configuration
 and loss of cross-channel digipeating.  It is possible to use a stereo
 audio interface but some ALSA magic is required to make it look like two
 independent virtual mono interfaces.
@@ -140,12 +140,12 @@ a single radio channel.  e.g.
 KISSPORT 8001 1
 KISSPORT 8002 2
 
-Now can use a single instance of direwolf.
+Now can use a single instance of direwuff.
 
 
                    +------------+    tcp 8001, KISS ch 0
 Radio A  --------  |            |  -------------------------- Application A
-                   |  direwolf  |
+                   |  direwuff  |
 Radio B  --------  |            |  -------------------------- Application B
                    +------------+    tcp 8002, KISS ch 0
 
@@ -159,7 +159,7 @@ When transmitting, the KISS channel is ignored.
 
 Of course, you could also use an application, capable of connecting to
 multiple single radio TNCs.  Separate TCP ports actually go to the
-same direwolf instance.
+same direwuff instance.
 
 */
 
@@ -170,7 +170,7 @@ same direwolf instance.
  */
 
 
-#include "direwolf.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
+#include "direwuff.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
 
 
 #if __WIN32__

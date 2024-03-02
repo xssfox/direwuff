@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2023  John Langner, WB2OSZ
 //
@@ -20,9 +20,9 @@
 
 /*------------------------------------------------------------------
  *
- * Module:      direwolf.c
+ * Module:      direwuff.c
  *
- * Purpose:   	Main program for "Dire Wolf" which includes:
+ * Purpose:   	Main program for "Dire Wuff" which includes:
  *			
  *			Various DSP modems using the "sound card."
  *			AX.25 encoder/decoder.
@@ -40,9 +40,9 @@
  *---------------------------------------------------------------*/
 
 
-#define DIREWOLF_C 1
+#define DIREWUFF_C 1
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 
 
@@ -209,10 +209,10 @@ int main (int argc, char *argv[])
 	char input_file[80];
 	char T_opt_timestamp[40];
 	
-	int t_opt = 1;		/* Text color option. */				
+	int t_opt = 0;		/* Text color option. */				
 	int a_opt = 0;		/* "-a n" interval, in seconds, for audio statistics report.  0 for none. */
 	int g_opt = 0;		/* G3RUH mode, ignoring default for speed. */				
-	int j_opt = 0;		/* 2400 bps PSK compatible with direwolf <= 1.5 */
+	int j_opt = 0;		/* 2400 bps PSK compatible with direwuff <= 1.5 */
 	int J_opt = 0;		/* 2400 bps PSK compatible MFJ-2400 and maybe others. */
 
 	int d_k_opt = 0;	/* "-d k" option for serial port KISS.  Can be repeated for more detail. */					
@@ -302,9 +302,9 @@ int main (int argc, char *argv[])
 
 	text_color_init(t_opt);
 	text_color_set(DW_COLOR_INFO);
-	//dw_printf ("Dire Wolf version %d.%d (%s) BETA TEST 7\n", MAJOR_VERSION, MINOR_VERSION, __DATE__);
-	dw_printf ("Dire Wolf DEVELOPMENT version %d.%d %s (%s)\n", MAJOR_VERSION, MINOR_VERSION, "A", __DATE__);
-	//dw_printf ("Dire Wolf version %d.%d\n", MAJOR_VERSION, MINOR_VERSION);
+	//dw_printf ("Dire Wuff version %d.%d (%s) BETA TEST 7\n", MAJOR_VERSION, MINOR_VERSION, __DATE__);
+	dw_printf ("Dire Wuff DEVELOPMENT version %d.%d %s (%s)\n", MAJOR_VERSION, MINOR_VERSION, "A", __DATE__);
+	//dw_printf ("Dire Wuff version %d.%d\n", MAJOR_VERSION, MINOR_VERSION);
 
 
 #if defined(ENABLE_GPSD) || defined(USE_HAMLIB) || defined(USE_CM108) || USE_AVAHI_CLIENT || USE_MACOS_DNSSD || USE_GPIOD
@@ -390,7 +390,7 @@ int main (int argc, char *argv[])
 	    text_color_set(DW_COLOR_ERROR);
 	    for (int n=0; n<15; n++) {
 	      dw_printf ("\n");
-	      dw_printf ("Dire Wolf requires only privileges available to ordinary users.\n");
+	      dw_printf ("Dire Wuff requires only privileges available to ordinary users.\n");
 	      dw_printf ("Running this as root is an unnecessary security risk.\n");
 	      //SLEEP_SEC(1);
 	    }
@@ -403,7 +403,7 @@ int main (int argc, char *argv[])
  * TODO:  Automatically search other places.
  */
 	
-	strlcpy (config_file, "direwolf.conf", sizeof(config_file));
+	strlcpy (config_file, "direwuff.conf", sizeof(config_file));
 
 /*
  * Look at command line options.
@@ -491,7 +491,7 @@ int main (int argc, char *argv[])
 	    g_opt = 1;
             break;
 
-          case 'j':				/* -j V.26 compatible with earlier direwolf. */
+          case 'j':				/* -j V.26 compatible with earlier direwuff. */
 
 	    j_opt = 1;
             break;
@@ -798,7 +798,7 @@ int main (int argc, char *argv[])
 	if (B_opt != 0) {
 	  audio_config.achan[0].baud = B_opt;
 
-	  /* We have similar logic in direwolf.c, config.c, gen_packets.c, and atest.c, */
+	  /* We have similar logic in direwuff.c, config.c, gen_packets.c, and atest.c, */
 	  /* that need to be kept in sync.  Maybe it could be a common function someday. */
 
 	  if (audio_config.achan[0].baud < 600) {
@@ -863,7 +863,7 @@ int main (int argc, char *argv[])
 
 	if (j_opt) {
 
-	  // V.26 compatible with earlier versions of direwolf.
+	  // V.26 compatible with earlier versions of direwuff.
 	  //   Example:   -B 2400 -j    or simply   -j
 
 	  audio_config.achan[0].v26_alternative = V26_A;
@@ -1666,9 +1666,9 @@ static void usage (char **argv)
 	text_color_set(DW_COLOR_ERROR);
 
 	dw_printf ("\n");
-	dw_printf ("Dire Wolf version %d.%d\n", MAJOR_VERSION, MINOR_VERSION);
+	dw_printf ("Dire Wuff version %d.%d\n", MAJOR_VERSION, MINOR_VERSION);
 	dw_printf ("\n");
-	dw_printf ("Usage: direwolf [options] [ - | stdin | UDP:nnnn ]\n");
+	dw_printf ("Usage: direwuff [options] [ - | stdin | UDP:nnnn ]\n");
 	dw_printf ("Options:\n");
 	dw_printf ("    -c fname       Configuration file name.\n");
 	dw_printf ("    -l logdir      Directory name for log files.  Use . for current.\n");
@@ -1684,7 +1684,7 @@ static void usage (char **argv)
 	dw_printf ("                     AIS for ship Automatic Identification System.\n");
 	dw_printf ("                     EAS for Emergency Alert System (EAS) Specific Area Message Encoding (SAME).\n");
 	dw_printf ("    -g             Force G3RUH modem regardless of speed.\n");
-	dw_printf ("    -j             2400 bps QPSK compatible with direwolf <= 1.5.\n");
+	dw_printf ("    -j             2400 bps QPSK compatible with direwuff <= 1.5.\n");
 	dw_printf ("    -J             2400 bps QPSK compatible with MFJ-2400.\n");
 	dw_printf ("    -P xxx         Modem Profiles.\n");
 	dw_printf ("    -A             Convert AIS positions to APRS Object Reports.\n");
@@ -1715,7 +1715,7 @@ static void usage (char **argv)
 	dw_printf ("       h             h = Heard line with the audio level.\n");
 	dw_printf ("       d             d = Description of APRS packets.\n");
 	dw_printf ("       x             x = Silence FX.25 information.\n");
-	dw_printf ("    -t n           Text colors.  0=disabled. 1=default.  2,3,4,... alternatives.\n");
+	dw_printf ("    -t n           Text colors.  0=disabled (default). 1=colors.  2,3,4,... alternatives.\n");
 	dw_printf ("                     Use 9 to test compatibility with your terminal.\n");
 	dw_printf ("    -a n           Audio statistics interval in seconds.  0 to disable.\n");
 #if __WIN32__
@@ -1742,13 +1742,13 @@ static void usage (char **argv)
 	dw_printf ("Documentation can be found in the 'doc' folder\n");
 #else
 	// TODO: Could vary by platform and build options.
-	dw_printf ("Documentation can be found in /usr/local/share/doc/direwolf\n");
+	dw_printf ("Documentation can be found in /usr/local/share/doc/direwuff\n");
 #endif
-	dw_printf ("or online at https://github.com/wb2osz/direwolf/tree/master/doc\n");
-	dw_printf ("additional topics: https://github.com/wb2osz/direwolf-doc\n");
+	dw_printf ("or online at https://github.com/wb2osz/direwuff/tree/master/doc\n");
+	dw_printf ("additional topics: https://github.com/wb2osz/direwuff-doc\n");
 	text_color_set(DW_COLOR_INFO);
 	exit (EXIT_FAILURE);
 }
 
 
-/* end direwolf.c */
+/* end direwuff.c */

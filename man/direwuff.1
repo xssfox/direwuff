@@ -1,11 +1,11 @@
-.TH DIREWOLF 1
+.TH DIREWUFF 1
 
 .SH NAME
-direwolf \- Soundcard TNC for packet radio.
+direwuff \- Soundcard TNC for packet radio.
 
 
 .SH SYNOPSIS
-.B direwolf 
+.B direwuff 
 [ \fIoptions\fR ]
 [ \- | \fBudp:\fR9999 ]
 .P
@@ -13,7 +13,7 @@ The first audio channel can be streamed thru stdin or a UDP port.  This is typic
 
 
 .SH DESCRIPTION
-\fBdirewolf\fR  is a software "soundcard" modem/TNC and APRS encoder/decoder.   
+\fBdirewuff\fR  is a software "soundcard" modem/TNC and APRS encoder/decoder.   
 It can be used stand-alone to receive APRS messages, as a digipeater, 
 APRStt gateway, or Internet Gateway (IGate).    
 It can also be used as a virtual TNC for other applications such as 
@@ -75,7 +75,7 @@ Force G3RUH modem regardless of data rate.
 
 .TP
 .BI "-j " 
-2400 bps QPSK compatible with Dire Wolf <= 1.5.
+2400 bps QPSK compatible with Dire Wuff <= 1.5.
 
 .TP
 .BI "-J " 
@@ -153,7 +153,7 @@ x = Silence FX.25 information.
 
 .TP
 .BI "-t " "n"
-Text colors.  0=disabled. 1=default.  2,3,4,... alternatives.  Use 9 to test compatibility with your terminal.
+Text colors.  0=disabled (default). 1=colors.  2,3,4,... alternatives.  Use 9 to test compatibility with your terminal.
 
 
 .TP
@@ -201,21 +201,21 @@ Receive Bit Error Rate (BER), e.g. 1e-5
 
 .SH EXAMPLES
 gqrx (2.3 and later) has the ability to send streaming audio through a UDP socket to another application for further processing. 
-direwolf can listen over a UDP port with options like this:
+direwuff can listen over a UDP port with options like this:
 .RS
 .P
-direwolf \-n 1 \-r 48000 \-b 16 udp:7355
+direwuff \-n 1 \-r 48000 \-b 16 udp:7355
 .RE
 .P
 Other SDR applications might produce audio on stdout so it is convenient to pipe into the next application.  In this example, the final "-" means read from stdin.
 .RS
 .P
-rtl_fm \-f 144.39M \-o 4 \- | direwolf \-n 1 \-r 24000 \-b 16 \-
+rtl_fm \-f 144.39M \-o 4 \- | direwuff \-n 1 \-r 24000 \-b 16 \-
 .RE
 
 
 .SH SEE ALSO
-More detailed information is in the pdf files in /usr/local/share/doc/direwolf, or possibly /usr/share/doc/direwolf, depending on installation location.
+More detailed information is in the pdf files in /usr/local/share/doc/direwuff, or possibly /usr/share/doc/direwuff, depending on installation location.
 
-Applications in this package: aclients, atest, cm108, decode_aprs, direwolf, gen_packets, kissutil, ll2utm, log2gpx, text2tt, tt2text, utm2ll
+Applications in this package: aclients, atest, cm108, decode_aprs, direwuff, gen_packets, kissutil, ll2utm, log2gpx, text2tt, tt2text, utm2ll
 

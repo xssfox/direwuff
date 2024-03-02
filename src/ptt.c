@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2013, 2014, 2015, 2016, 2017, 2023  John Langner, WB2OSZ
 //
@@ -118,7 +118,7 @@
 	Here is an attempt to add direct CM108 support.
 	Seems to be hardcoded for only a single USB audio adapter.
 
-		https://github.com/donothingloop/direwolf_cm108
+		https://github.com/donothingloop/direwuff_cm108
 
 	In version 1.3, we add HAMLIB support which should be able to do this in a roundabout way.
 	(Linux only at this point.)
@@ -137,7 +137,7 @@
 */
 
 
-#include "direwolf.h"		// should be first.   This includes windows.h.
+#include "direwuff.h"		// should be first.   This includes windows.h.
 
 #include <stdio.h>
 #include <unistd.h>
@@ -475,7 +475,7 @@ void export_gpio(int ch, int ot, int invert, int direction)
 
 	    if (e == 22) {
 	      // It appears that error 22 occurs when sysfs gpio is not available.
-	      // (See https://github.com/wb2osz/direwolf/issues/503)
+	      // (See https://github.com/wb2osz/direwuff/issues/503)
 	      //
 	      // The solution might be to use the new gpiod approach.
 
@@ -490,7 +490,7 @@ void export_gpio(int ch, int ot, int invert, int direction)
 	  }
 	}
 	/* Wait for udev to adjust permissions after enabling GPIO. */
-	/* https://github.com/wb2osz/direwolf/issues/176 */
+	/* https://github.com/wb2osz/direwuff/issues/176 */
 	SLEEP_MS(250);
 	close (fd);
 
@@ -508,7 +508,7 @@ void export_gpio(int ch, int ot, int invert, int direction)
  *
  *	How should we deal with this?  Some possibilities:
  *
- *	(1) The user might explicitly mention the name in direwolf.conf.
+ *	(1) The user might explicitly mention the name in direwuff.conf.
  *	(2) We might be able to find the names in some system device config file.
  *	(3) Get a directory listing of /sys/class/gpio then search for a
  *		matching name.  Suppose we wanted GPIO 61.  First look for an exact
@@ -1025,9 +1025,9 @@ void ptt_init (struct audio_s *audio_config_p)
 	          dw_printf ("ERROR - Can't open /dev/port for parallel printer port PTT control.\n");
 	          dw_printf ("%s\n", strerror(e));
 	          dw_printf ("You probably don't have adequate permissions to access I/O ports.\n");
-	          dw_printf ("Either run direwolf as root or change these permissions:\n");
+	          dw_printf ("Either run direwuff as root or change these permissions:\n");
 	          dw_printf ("  sudo chmod go+rw /dev/port\n");
-	          dw_printf ("  sudo setcap cap_sys_rawio=ep `which direwolf`\n");
+	          dw_printf ("  sudo setcap cap_sys_rawio=ep `which direwuff`\n");
 
 	          /* Don't try using it later if device open failed. */
 
@@ -1389,7 +1389,7 @@ void ptt_set (int ot, int chan, int ptt_signal)
 	if (save_audio_config_p->achan[chan].octrl[ot].ptt_method == PTT_METHOD_GPIOD) {
 		const char *chip = save_audio_config_p->achan[chan].octrl[ot].out_gpio_name;
 		int line = save_audio_config_p->achan[chan].octrl[ot].out_gpio_num;
-		int rc = gpiod_ctxless_set_value(chip, line, ptt, false, "direwolf", NULL, NULL);
+		int rc = gpiod_ctxless_set_value(chip, line, ptt, false, "direwuff", NULL, NULL);
 		if (ptt_debug_level >= 1) {
 			text_color_set(DW_COLOR_DEBUG);
 			dw_printf("PTT_METHOD_GPIOD chip: %s line: %d ptt: %d  rc: %d\n", chip, line, ptt, rc);

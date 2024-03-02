@@ -16,7 +16,7 @@
 #include <hamlib/rig.h>
 #endif
 
-#include "direwolf.h"		/* for MAX_CHANS used throughout the application. */
+#include "direwuff.h"		/* for MAX_CHANS used throughout the application. */
 #include "ax25_pad.h"		/* for AX25_MAX_ADDR_LEN */
 #include "version.h"
 				
@@ -331,6 +331,10 @@ struct audio_s {
 
 	    } octrl[NUM_OCTYPES];
 
+
+		char *pre_ptt_cmd;	/* Command to append more to Comment or NULL. */
+		char *start_ptt_cmd;	/* Command to append more to Comment or NULL. */
+		char *post_ptt_cmd;	/* Command to append more to Comment or NULL. */
 
 	/* Each channel can also have associated input lines. */
 	/* So far, we just have one for transmit inhibit. */

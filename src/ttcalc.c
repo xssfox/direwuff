@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2013, 2015  John Langner, WB2OSZ
 //
@@ -24,10 +24,10 @@
  *
  * Purpose:   	Simple Touch Tone to Speech calculator.
  *		
- * Description:	Demonstration of how Dire Wolf can be used
+ * Description:	Demonstration of how Dire Wuff can be used
  *		as a DTMF / Speech interface for ham radio applications.
  *
- * Usage:	Start up direwolf with configuration:
+ * Usage:	Start up direwuff with configuration:
  *			- DTMF decoder enabled.
  *			- Text-to-speech enabled.
  *			- Listening to standard port 8000 for a client application.
@@ -44,7 +44,7 @@
  *---------------------------------------------------------------*/
 
 
-#include "direwolf.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
+#include "direwuff.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
 
 #if __WIN32__
 
@@ -68,7 +68,7 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "direwolf.h"
+#include "direwuff.h"
 #include "ax25_pad.h"
 #include "textcolor.h"
 
@@ -120,7 +120,7 @@ int main (int argc, char *argv[])
 	assert (calculator("6a4*5#") == 50);
 
 /*
- * Try to attach to Dire Wolf.
+ * Try to attach to Dire Wuff.
  */
 
 	server_sock = connect_to_server (hostname, port);
@@ -323,7 +323,7 @@ static int calculator (char *str)
  *
  * Name: 	connect_to_server
  * 
- * Purpose:	Connect to Dire Wolf TNC server.
+ * Purpose:	Connect to Dire Wuff TNC server.
  *
  * Inputs:	hostname
  *		port

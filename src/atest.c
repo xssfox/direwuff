@@ -1,6 +1,6 @@
 
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2011, 2012, 2013, 2014, 2015, 2016, 2019, 2021, 2022, 2023  John Langner, WB2OSZ
 //
@@ -23,7 +23,7 @@
  *
  * Name:        atest.c
  *
- * Purpose:     Test fixture for the Dire Wolf demodulators.
+ * Purpose:     Test fixture for the Dire Wuff demodulators.
  *
  * Inputs:	Takes audio from a .WAV file instead of the audio device.
  *
@@ -59,7 +59,7 @@
 
 // #define X 1
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -185,7 +185,7 @@ static int sample_number = -1;		/* Sample number from the file. */
 
 static int B_opt = DEFAULT_BAUD;	// Bits per second.  Need to change all baud references to bps.
 static int g_opt = 0;			// G3RUH modem regardless of speed.
-static int j_opt = 0;			/* 2400 bps PSK compatible with direwolf <= 1.5 */
+static int j_opt = 0;			/* 2400 bps PSK compatible with direwuff <= 1.5 */
 static int J_opt = 0;			/* 2400 bps PSK compatible MFJ-2400 and maybe others. */
 static int h_opt = 0;			// Hexadecimal display of received packet.
 static char P_opt[16] = "";		// Demodulator profiles.
@@ -293,7 +293,7 @@ int main (int argc, char *argv[])
 	      g_opt = 1;
               break;
 
-            case 'j':				/* -j V.26 compatible with earlier direwolf. */
+            case 'j':				/* -j V.26 compatible with earlier direwuff. */
 
 	      j_opt = 1;
               break;
@@ -426,7 +426,7 @@ int main (int argc, char *argv[])
         my_audio_config.achan[0].baud = B_opt;
 
 
-	/* We have similar logic in direwolf.c, config.c, gen_packets.c, and atest.c, */
+	/* We have similar logic in direwuff.c, config.c, gen_packets.c, and atest.c, */
 	/* that need to be kept in sync.  Maybe it could be a common function someday. */
 
 	if (my_audio_config.achan[0].baud == 100) {		// What was this for?
@@ -502,7 +502,7 @@ int main (int argc, char *argv[])
  */
 	if (j_opt) {
 
-	  // V.26 compatible with earlier versions of direwolf.
+	  // V.26 compatible with earlier versions of direwuff.
 	  //   Example:   -B 2400 -j    or simply   -j
 
 	  my_audio_config.achan[0].v26_alternative = V26_A;
@@ -966,7 +966,7 @@ static void usage (void) {
 
 	dw_printf ("\n");
 	dw_printf ("atest is a test application which decodes AX.25 frames from an audio\n");
-	dw_printf ("recording.  This provides an easy way to test Dire Wolf decoding\n");
+	dw_printf ("recording.  This provides an easy way to test Dire Wuff decoding\n");
 	dw_printf ("performance much quicker than normal real-time.   \n"); 
 	dw_printf ("\n");
 	dw_printf ("usage:\n");
@@ -983,7 +983,7 @@ static void usage (void) {
 	dw_printf ("               EAS for Emergency Alert System (EAS) Specific Area Message Encoding (SAME).\n");
 	dw_printf ("\n");
 	dw_printf ("        -g     Use G3RUH modem rather rather than default for data rate.\n");
-	dw_printf ("        -j     2400 bps QPSK compatible with direwolf <= 1.5.\n");
+	dw_printf ("        -j     2400 bps QPSK compatible with direwuff <= 1.5.\n");
 	dw_printf ("        -J     2400 bps QPSK compatible with MFJ-2400.\n");
 	dw_printf ("\n");
 	dw_printf ("        -D n   Divide audio sample rate by n.\n");

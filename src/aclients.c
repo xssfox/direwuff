@@ -1,5 +1,5 @@
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2013, 2015  John Langner, WB2OSZ
 //
@@ -30,7 +30,7 @@
  *
  * Usage:	aclients port1=name1 port2=name2 ...
  *
- * Example:	aclients  8000=AGWPE  192.168.1.64:8002=DireWolf  COM1=D710A
+ * Example:	aclients  8000=AGWPE  192.168.1.64:8002=DireWuff  COM1=D710A
  *
  *		This will connect to multiple physical or virtual
  *		TNCs, read packets from them, and display results.
@@ -51,7 +51,7 @@
  * Linux:		Use the BSD socket interface.
  */
 
-#include "direwolf.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
+#include "direwuff.h"		// Sets _WIN32_WINNT for XP API level needed by ws2tcpip.h
 
 #if __WIN32__
 

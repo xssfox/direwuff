@@ -1,6 +1,6 @@
 
 //
-//    This file is part of Dire Wolf, an amateur radio packet TNC.
+//    This file is part of Dire Wuff, an amateur radio packet TNC.
 //
 //    Copyright (C) 2014  John Langner, WB2OSZ
 //
@@ -18,7 +18,7 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include "direwolf.h"
+#include "direwuff.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -126,7 +126,7 @@ int main (int argc, char *argv[])
  * GPX file header.
  */
 	printf ("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n");
-	printf ("<gpx version=\"1.1\" creator=\"Dire Wolf\">\n");
+	printf ("<gpx version=\"1.1\" creator=\"Dire Wuff\">\n");
 
 /*
  * Group together all records for the same entity.
