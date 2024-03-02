@@ -46,23 +46,25 @@ struct igate_config_s {
 /*
  * For transmitting.
  */
-	int tx_chan;			/* Radio channel for transmitting. */
-					/* 0=first, etc.  -1 for none. */
-					/* Presently IGate can transmit on only a single channel. */
-					/* A future version might generalize this.  */
-					/* Each transmit channel would have its own client side filtering. */
+	struct igatetx_param_s {
+		int tx_chan;			/* Radio channel for transmitting. */
+						/* 0=first, etc.  -1 for none. */
+						/* Presently IGate can transmit on only a single channel. */
+						/* A future version might generalize this.  */
+						/* Each transmit channel would have its own client side filtering. */
 
-	char tx_via[80];		/* VIA path for transmitting third party packets. */
-					/* Usual text representation.  */
-					/* Must start with "," if not empty so it can */
-					/* simply be inserted after the destination address. */
+		char tx_via[80];		/* VIA path for transmitting third party packets. */
+						/* Usual text representation.  */
+						/* Must start with "," if not empty so it can */
+						/* simply be inserted after the destination address. */
 
+
+	} tx[MAX_IGTXVIA];
 	int max_digi_hops;		/* Maximum number of digipeater hops possible for via path. */
 					/* Derived from the SSID when last character of address is a digit. */
 					/* e.g.  "WIDE1-1,WIDE5-2" would be 3. */
 					/* This is useful to know so we can determine how many */
 					/* stations we might be able to reach. */
-
 	int tx_limit_1;			/* Max. packets to transmit in 1 minute. */
 
 	int tx_limit_5;			/* Max. packets to transmit in 5 minutes. */

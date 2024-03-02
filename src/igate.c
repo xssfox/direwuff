@@ -1134,11 +1134,13 @@ static void send_packet_to_server (packet_t pp, int chan)
 	ax25_format_addrs (pp, msg);
 	msg[strlen(msg)-1] = '\0';    /* Remove trailing ":" */
 
-	if (save_igate_config_p->tx_chan >= 0) {
-	  strlcat (msg, ",qAR,", sizeof(msg));
-	}
-	else {
-	  strlcat (msg, ",qAO,", sizeof(msg));		// new for version 1.4.
+	strlcat (msg, ",qAO,", sizeof(msg));		// new for version 1.4.
+
+	for (int igtx_check = 0; igtx_check<MAX_IGTXVIA; igtx_check++){
+		if (save_igate_config_p->tx[igtx_check].tx_chan >= 0) {
+			strlcat (msg, ",qAR,", sizeof(msg));
+			break;
+		}
 	}
 
 	strlcat (msg, save_audio_config_p->achan[chan].mycall, sizeof(msg));
@@ -1511,11 +1513,13 @@ static void * igate_recv_thread (void *arg)
 /*
  * Possibly transmit if so configured.
  */
-	    int to_chan = save_igate_config_p->tx_chan;
+		for (int igtx_check = 0; igtx_check<MAX_IGTXVIA; igtx_check++){
+			int to_chan = save_igate_config_p->tx[igtx_check].tx_chan;
 
-	    if (to_chan >= 0) {
-	      maybe_xmit_packet_from_igate ((char*)message, to_chan);
-	    }
+			if (to_chan >= 0) {
+				maybe_xmit_packet_from_igate ((char*)message, igtx_check);
+			}
+		}
 
 
 /*
@@ -1777,10 +1781,10 @@ static int is_message_message (char *infop)
 }
 
 
-static void maybe_xmit_packet_from_igate (char *message, int to_chan)
+static void maybe_xmit_packet_from_igate (char *message, int igtx_id)
 {
 	int n;
-
+	int to_chan = save_igate_config_p->tx[igtx_id].tx_chan;
 	assert (to_chan >= 0 && to_chan < MAX_CHANS);
 
 /*
@@ -1993,7 +1997,7 @@ static void maybe_xmit_packet_from_igate (char *message, int to_chan)
 	  snprintf (radio, sizeof(radio), "%s>%s%d%d%s:}%s",
 				save_audio_config_p->achan[to_chan].mycall,
 				APP_TOCALL, MAJOR_VERSION, MINOR_VERSION,
-				save_igate_config_p->tx_via,
+				save_igate_config_p->tx[igtx_id].tx_via,
 				payload);
 
 	  packet_t pradio = ax25_from_text (radio, 1);
@@ -2019,7 +2023,7 @@ static void maybe_xmit_packet_from_igate (char *message, int to_chan)
 	      mheard_set_msp (src, save_igate_config_p->igmsp);
 	    }
 
-	    ig_to_tx_remember (pp3, save_igate_config_p->tx_chan, 0);	// correct. version before encapsulating it.
+		ig_to_tx_remember (pp3, save_igate_config_p->tx[to_chan].tx_chan, 0);	// correct. version before encapsulating it.
 	  }
 	  else {
 	    text_color_set(DW_COLOR_ERROR);

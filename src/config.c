@@ -731,6 +731,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 	int line;
 	int channel;
 	int adevice;
+	int igtx = 0;
 	int m;
 
 #if DEBUG
@@ -893,11 +894,14 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 
 	memset (p_igate_config, 0, sizeof(struct igate_config_s));
 	p_igate_config->t2_server_port = DEFAULT_IGATE_PORT;
-	p_igate_config->tx_chan = -1;			/* IS->RF not enabled */
 	p_igate_config->tx_limit_1 = IGATE_TX_LIMIT_1_DEFAULT;
 	p_igate_config->tx_limit_5 = IGATE_TX_LIMIT_5_DEFAULT;
 	p_igate_config->igmsp = 1;
 	p_igate_config->rx2ig_dedupe_time = IGATE_RX2IG_DEDUPE_TIME;
+
+	for (int igtx_check = 0; igtx_check<MAX_IGTXVIA; igtx_check++){
+		p_igate_config->tx[igtx_check].tx_chan = -1;
+	}
 
 
 	/* People find this confusing. */
@@ -4573,36 +4577,35 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 							MAX_CHANS-1, line);
 	      continue;
 	    }
-	    p_igate_config->tx_chan = n;
+
+		if (igtx >= MAX_IGTXVIA){
+			text_color_set(DW_COLOR_ERROR);
+			dw_printf("Too many IGTXVIA configured. Line: %d", line);
+			continue;
+		}
+
+	    p_igate_config->tx[igtx].tx_chan = n;
 
 	    t = split(NULL,0);
 	    if (t != NULL) {
 
-#if 1	// proper checking
-
 	      n = check_via_path(t);
 	      if (n >= 0) {
-	        p_igate_config->max_digi_hops = n;
-	        p_igate_config->tx_via[0] = ',';
-	        strlcpy (p_igate_config->tx_via + 1, t, sizeof(p_igate_config->tx_via)-1);
+			if (n >  p_igate_config->max_digi_hops) {
+	        	p_igate_config->max_digi_hops = n;
+			}
+	        p_igate_config->tx[igtx].tx_via[0] = ',';
+	        strlcpy (p_igate_config->tx[igtx].tx_via + 1, t, sizeof(p_igate_config->tx[igtx].tx_via)-1);
+			
 	      }
 	      else {
 	        text_color_set(DW_COLOR_ERROR);
 	        dw_printf ("Config file, line %d: invalid via path.\n", line);
 	      }
 
-#else	// previously
-
-	      char *p;
-	      p_igate_config->tx_via[0] = ',';
-	      strlcpy (p_igate_config->tx_via + 1, t, sizeof(p_igate_config->tx_via)-1);
-	      for (p = p_igate_config->tx_via; *p != '\0'; p++) {
-	        if (islower(*p)) {
-		  *p = toupper(*p);	/* silently force upper case. */
-	        }
-	      }
-#endif
 	    }
+
+		igtx++; // move to next IGTXVIA
 	  }
 
 /*
@@ -5633,15 +5636,17 @@ void config_init (char *fname, struct audio_s *p_audio_config,
 	    }
 	    // Currently we can have only one transmit channel.
 	    // This might be generalized someday to allow more.
-	    if (p_igate_config->tx_chan >= 0 && 
-			( strcmp(p_audio_config->achan[p_igate_config->tx_chan].mycall, "") == 0 ||
-		          strcmp(p_audio_config->achan[p_igate_config->tx_chan].mycall, "NOCALL") == 0 ||
-			  strcmp(p_audio_config->achan[p_igate_config->tx_chan].mycall, "N0CALL") == 0)) {
+		for (int igtx_check = 0; igtx_check<igtx; igtx_check++){
+			if (
+				( strcmp(p_audio_config->achan[p_igate_config->tx[igtx_check].tx_chan].mycall, "") == 0 ||
+					strcmp(p_audio_config->achan[p_igate_config->tx[igtx_check].tx_chan].mycall, "NOCALL") == 0 ||
+				strcmp(p_audio_config->achan[p_igate_config->tx[igtx_check].tx_chan].mycall, "N0CALL") == 0)) {
 
-	      text_color_set(DW_COLOR_ERROR);
-	      dw_printf ("Config file: MYCALL must be set for transmit channel %d before Tx IGate is allowed.\n", i);
-	      p_igate_config->tx_chan = -1;
-	    }
+			text_color_set(DW_COLOR_ERROR);
+			dw_printf ("Config file: MYCALL must be set for transmit channel %d before Tx IGate is allowed.\n", i);
+			p_igate_config->tx[igtx_check].tx_chan = -1;
+			}
+		}
 	  }
 	}
 

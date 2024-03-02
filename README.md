@@ -9,6 +9,7 @@ Additional features include:
  - Better logo
  - Text colors off by default
  - PTT_PRE_CMD / PTT_POST_CMD / PTT_START_CMD - designed for checking the radio is the correct configuration and checking SWR during transmission
+ - Adds the ability to use multiple IGTXVIA
 
 ### Decoded Information from Radio Emissions for Windows Or Linux Fans ###
 

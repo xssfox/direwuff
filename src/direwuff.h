@@ -72,6 +72,8 @@
 					// Someone with very unusual requirements could increase this and
 					// use only the AGW network protocol.
 
+#define MAX_IGTXVIA 16 // how many IGTXVIA statements are permitted
+
 /*
  * Maximum number of rigs.
  */
