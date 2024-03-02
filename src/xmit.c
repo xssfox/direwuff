@@ -568,6 +568,7 @@ static void * xmit_thread (void *arg)
 
 	      if (ok) {
 			
+			#ifndef __WIN32__
 			if (save_audio_config_p->achan[chan].start_ptt_cmd){
 				start_ptt_cmd_pid = fork();
 				if ( start_ptt_cmd_pid == 0 ) {
@@ -579,8 +580,8 @@ static void * xmit_thread (void *arg)
 					argv[3] = NULL;
 					execvp(cmd, argv);
 				}
-
 			}
+			#endif
 
 /*
  * Channel is clear and we have lock on output device. 
@@ -639,6 +640,7 @@ static void * xmit_thread (void *arg)
 	            break;
 	        }
 
+			#ifndef __WIN32__
 			if (start_ptt_cmd_pid) {
 				kill(start_ptt_cmd_pid, SIGTERM);
 				int pid_status;
@@ -646,6 +648,7 @@ static void * xmit_thread (void *arg)
 				fflush(stdout);
 				fflush(stderr);
 			}
+			#endif
 
 			if (save_audio_config_p->achan[chan].post_ptt_cmd){
 				int post_ret = system(save_audio_config_p->achan[chan].post_ptt_cmd);

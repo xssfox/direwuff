@@ -2179,6 +2179,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
         }
         p_audio_config->achan[channel].post_ptt_cmd = strdup(t);
       }
+      #ifndef __WIN32__
       else if (strcasecmp(t, "PTT_START_CMD") == 0){
         t = split(NULL,1);
         if (t == NULL) {
@@ -2189,6 +2190,7 @@ void config_init (char *fname, struct audio_s *p_audio_config,
         }
         p_audio_config->achan[channel].start_ptt_cmd = strdup(t);
       }
+      #endif
     
 
 
