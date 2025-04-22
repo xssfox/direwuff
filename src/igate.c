@@ -1143,6 +1143,9 @@ static void send_packet_to_server (packet_t pp, int chan)
 		}
 	}
 
+	if (chan < 0){ // if channel is -1 (sent by us, not from rf, use first channel mycall)
+		chan = 0;
+	}
 	strlcat (msg, save_audio_config_p->achan[chan].mycall, sizeof(msg));
 	strlcat (msg, ":", sizeof(msg));
 
