@@ -78,7 +78,7 @@
 #include "xid.h"
 #include "dlq.h"
 #include "server.h"
-
+#include <sys/wait.h>
 
 /*
  * Parameters for transmission.
